@@ -3,53 +3,52 @@
 @tailwind utilities;
 
 /* HAMBURGER MENU */
-
 .hamburger {
-	cursor: pointer;
-	width: 36px;
-	height: 24px;
-	transition: all 0.25s;
-	position: relative;
+    cursor: pointer;
+    width: 36px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
 }
 
 .hamburger-top,
 .hamburger-middle,
 .hamburger-bottom {
-	content: '';
-	position: absolute;
-	width: 36px;
-	height: 2px;
-	top: 0;
-	left: 0;
-	background: #e2e8f0;
-	transform: rotate(0);
-	transition: all 0.5s;
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background: #e2e8f0;
+    transform: rotate(0);
+    transition: all 0.5s;
 }
 
 .hamburger-middle {
-	transform: translateY(7px);
+    transform: translateY(7px);
 }
 
 .hamburger-bottom {
-	transform: translateY(14px);
+    transform: translateY(14px);
 }
 
 .open {
-	transform: rotate(90deg);
-	transform: translateY(0px);
-	position: fixed;
+    transform: rotate(90deg);
+    transform: translateY(0px);
+    position: fixed;
 }
 
 .open .hamburger-top {
-	transform: rotate(45deg) translateY(6px) translateX(6px);
-	background-color: ##e2e8f0;
+    transform: rotate(45deg) translateY(6px) translateX(6px);
+    background-color: ##e2e8f0;
 }
 
 .open .hamburger-middle {
-	display: none;
+    display: none;
 }
 
 .open .hamburger-bottom {
-	transform: rotate(-45deg) translateY(6px) translateX(-6px);
-	background-color: ##e2e8f0;
+    transform: rotate(-45deg) translateY(6px) translateX(-6px);
+    background-color: ##e2e8f0;
 }
