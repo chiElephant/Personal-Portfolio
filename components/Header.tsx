@@ -1,6 +1,6 @@
-import Avatar from './Avatar';
-import NavMenu from './NavMenu';
-import DarkModeBtn from './DarkModeBtn';
+import Avatar from './header/Avatar';
+import NavMenu from './header/NavMenu';
+import DarkModeBtn from './header/DarkModeBtn';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -19,7 +19,7 @@ export default function Header() {
           header.classList.add('duration-500')
           header.classList.add(`opacity-0`)
 
-        } else if (scroll > 64 && scroll < scrollTop) {
+        } else if (scroll > 0 && scroll < scrollTop) {
           header.classList.add('transform')
           header.classList.remove('opacity-0')
           header.classList.add('opacity-100')
