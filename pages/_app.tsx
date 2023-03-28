@@ -8,7 +8,7 @@ const nunito = Nunito({
 	subsets: ['latin'],
 })
 
-export default function App({ Component, pageProps }: AppProps) {
+const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 	return (
 		<div className={nunito.className}>
 			<Layout>
@@ -17,3 +17,5 @@ export default function App({ Component, pageProps }: AppProps) {
 		</div>
 	)
 }
+
+export default App

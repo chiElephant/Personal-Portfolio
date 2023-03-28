@@ -1,10 +1,18 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import Script from 'next/script'
+import { HtmlHTMLAttributes } from 'react'
 
-export default function Document() {
+interface DocumentProps {
+	htmlProps: HtmlHTMLAttributes<HTMLHtmlElement>
+}
+
+/**
+ * Document component is used to modify the initial HTML and body tags rendered on the server.
+ * It is only rendered on the server-side, and not on the client-side.
+ */
+export default function Document({ htmlProps }: DocumentProps): JSX.Element {
 	return (
 		<Html
-			className='h-full antialiased'
+			{...htmlProps}
 			lang='en'
 		>
 			<Head />

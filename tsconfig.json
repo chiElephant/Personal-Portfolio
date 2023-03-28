@@ -20,6 +20,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "svg_paths/social.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "svg_paths/social.tsx"],
   "exclude": ["node_modules"]
 }

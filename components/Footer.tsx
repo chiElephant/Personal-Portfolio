@@ -1,5 +1,5 @@
 export default function Footer() {
-	const pages = ['About', 'Projects', 'Resume', 'Stack', 'Blog']
+	const pages = ['About', 'Projects', 'Resume', 'Stack', 'Articles']
 	return (
 		<footer className='mt-32'>
 			<div className='sm:px-8'>
