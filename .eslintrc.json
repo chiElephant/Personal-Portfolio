@@ -1,9 +1,5 @@
 {
-	"extends": [
-		"next/core-web-vitals",
-		"prettier"
-	],
-
+	"extends": ["next/core-web-vitals", "prettier"],
 
 	"overrides": [
 		{
@@ -14,7 +10,6 @@
 			"extends": ["plugin:testing-library/react"]
 		}
 	],
-
 
 	"plugins": ["prettier", "testing-library"]
 }
