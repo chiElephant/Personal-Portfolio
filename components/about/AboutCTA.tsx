@@ -1,4 +1,5 @@
 import socialSVGs from '../../svg_paths/social'
+import Link from 'next/link'
 
 interface ExternalLinks {
 	[key: string]: string | undefined
@@ -26,7 +27,7 @@ export default function AboutCTA() {
 						className='mt-4 flex'
 					>
 						<a
-							href={externalLinks[platform.toLowerCase()]}
+							ref={externalLinks[platform.toLowerCase()]}
 							className={
 								platform === 'email'
 									? 'mt-8 flex border-t border-zinc-100 pt-8 dark:border-zinc-700/40'
