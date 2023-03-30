@@ -34,6 +34,7 @@ export default function Header() {
 		<header
 			id='header'
 			className='pointer-events-none fixed top-0 z-50 flex w-full transform flex-col'
+			data-testid='header'
 		>
 			<div className='top-0 z-10 h-16 pt-6 '>
 				<div className='w-full sm:px-8'>

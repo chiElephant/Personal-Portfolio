@@ -4,7 +4,10 @@ import paragraphs from '../../text/about'
 export default function AboutContent() {
 	return (
 		<>
-			<div className='lg:pl-20'>
+			<div
+				className='lg:pl-20'
+				data-testid='about-content'
+			>
 				<div className='max-w-xs px-2.5 lg:max-w-none'>
 					<Image
 						src='/new.png'
@@ -23,13 +26,13 @@ export default function AboutContent() {
 					{paragraphs.heading}
 				</h1>
 				<div className='mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400'>
-					<p>{paragraphs.one}</p>
+					<p role='paragraph'>{paragraphs.one}</p>
 
-					<p>{paragraphs.two}</p>
+					<p role='paragraph'>{paragraphs.two}</p>
 
-					<p>{paragraphs.three}</p>
+					<p role='paragraph'>{paragraphs.three}</p>
 
-					<p>{paragraphs.four}</p>
+					<p role='paragraph'>{paragraphs.four}</p>
 				</div>
 			</div>
 		</>
