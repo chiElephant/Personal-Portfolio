@@ -1,19 +1,14 @@
 import React from 'react'
-import type { AppInitialProps } from 'next/app'
+import type { AppProps } from 'next/app'
 import { Nunito } from 'next/font/google'
 import Layout from '@/components/Layout'
 import '@/styles/globals.css'
-
-export interface AppOptions {
-	Component: React.ElementType
-	pageProps: AppInitialProps
-}
 
 const nunito = Nunito({
 	subsets: ['latin'],
 })
 
-export default function App({ Component, pageProps }: AppOptions): JSX.Element {
+export default function App({ Component, pageProps }: AppProps): JSX.Element {
 	return (
 		<div className={nunito.className}>
 			<Layout>
