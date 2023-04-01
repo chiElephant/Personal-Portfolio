@@ -6,8 +6,7 @@ interface Props {
 
 export default function Meta({ page }: Props) {
 	return (
-		<div data-testid='meta'>
-			<Head>
+			<Head data-testid='meta'>
 				<title data-testid='meta-title'>{`${page} | Anthony Merino`}</title>
 				<meta
 					name='description'
@@ -30,6 +29,5 @@ export default function Meta({ page }: Props) {
 					href='/favicon.ico'
 				/>
 			</Head>
-		</div>
 	)
 }

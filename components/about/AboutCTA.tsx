@@ -43,7 +43,7 @@ export default function AboutCTA() {
 								aria-hidden='true'
 								className='h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500'
 							>
-								{socialSVGs[platform]}
+								{socialSVGs[platform.toLowerCase()]}
 							</svg>
 							<span className={'ml-4'}>
 								{platform === 'email'
