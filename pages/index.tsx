@@ -84,34 +84,34 @@ export default function Home() {
 					<div className='my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8'>
 						<div className='relative flex aspect-[9/10] w-44 -rotate-2 justify-center overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl'>
 							<Image
-								src='/1.jpg'
+								src='/c.png'
 								alt='LOGO'
-								width={3936}
-								height={2624}
+								width={2400}
+								height={3000}
 							/>
 						</div>
 						<div className='relative flex aspect-[9/10] w-44 rotate-2 justify-center overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl'>
 							<Image
-								src='/new.png'
+								src='/fi.png'
 								alt='LOGO'
-								width={3936}
-								height={2624}
+								width={2400}
+								height={3000}
 							/>
 						</div>
 						<div className='relative flex aspect-[9/10] w-44 rotate-2 justify-center overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl'>
 							<Image
-								src='/1.jpg'
+								src='/c.png'
 								alt='LOGO'
-								width={3936}
-								height={2624}
+								width={2400}
+								height={3000}
 							/>
 						</div>
 						<div className='relative flex aspect-[9/10] w-44 -rotate-2 justify-center overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl'>
 							<Image
-								src='/new.png'
+								src='/fi.png'
 								alt='LOGO'
-								width={3936}
-								height={2624}
+								width={2400}
+								height={3000}
 							/>
 						</div>
 					</div>
