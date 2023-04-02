@@ -82,7 +82,7 @@ export default function Home() {
 				{/* Images */}
 				<div className='mt-16 sm:mt-20'>
 					<div className='my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8'>
-						<div className='relative flex aspect-[9/10] w-44 -rotate-2 justify-center overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl'>
+						<div className="relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl rotate-2">
 							<Image
 								src='/c.png'
 								alt='LOGO'
@@ -90,7 +90,7 @@ export default function Home() {
 								height={3000}
 							/>
 						</div>
-						<div className='relative flex aspect-[9/10] w-44 rotate-2 justify-center overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl'>
+						<div className="relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl -rotate-2">
 							<Image
 								src='/fi.png'
 								alt='LOGO'
@@ -98,7 +98,7 @@ export default function Home() {
 								height={3000}
 							/>
 						</div>
-						<div className='relative flex aspect-[9/10] w-44 rotate-2 justify-center overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl'>
+						<div className="relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl rotate-2">
 							<Image
 								src='/c.png'
 								alt='LOGO'
@@ -106,9 +106,17 @@ export default function Home() {
 								height={3000}
 							/>
 						</div>
-						<div className='relative flex aspect-[9/10] w-44 -rotate-2 justify-center overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl'>
+						<div className="relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl rotate-2">
 							<Image
 								src='/fi.png'
+								alt='LOGO'
+								width={2400}
+								height={3000}
+							/>
+						</div>
+						<div className="relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl -rotate-2">
+							<Image
+								src='/c.png'
 								alt='LOGO'
 								width={2400}
 								height={3000}
@@ -140,7 +148,7 @@ export default function Home() {
 											</h2>
 											<time
 												className='text sm relative z-10 order-first mb-3 flex items-center pl-3.5 text-zinc-400 dark:text-zinc-500'
-												dateTime='2202-09-05'
+												dateTime='2023-04-01'
 											>
 												<span
 													className='absolute inset-y-0 left-0 flex items-center'
