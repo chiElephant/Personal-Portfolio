@@ -1,5 +1,5 @@
 export default function Footer() {
-	const pages = ['Home', 'About', 'Projects', 'Resume', 'Articles']
+	const pages = ['Home', 'About', 'Projects', 'Experience', 'Articles']
 
 	return (
 		<footer

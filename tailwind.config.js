@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: 'class',
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/app/**/*.{js,ts,jsx,tsx}',
-  ],
-  theme: {
+	content: [
+		'./src/pages/**/*.{js,ts,jsx,tsx}',
+		'./src/components/**/*.{js,ts,jsx,tsx}',
+		'./src/app/**/*.{js,ts,jsx,tsx}',
+	],
+	theme: {
 		extend: {
 			colors: {
 				mocha: '#201E1D',
@@ -26,7 +26,5 @@ module.exports = {
 			},
 		},
 	},
-  plugins: [
-		require('@tailwindcss/typography')
-	],
+	plugins: [require('@tailwindcss/typography')],
 }

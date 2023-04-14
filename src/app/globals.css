@@ -1,3 +1,308 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+pre {
+	/* background-color: #eff0f1; */
+	padding: 16px;
+	border-radius: 4px;
+	overflow: auto;
+	font-size: 14px;
+	margin-bottom: 4.1rem;
+	padding: 3.7rem 0 1.6rem 0.4rem;
+	border-radius: 12px;
+	overflow: hidden;
+	background-image: url('../../public/window-buttons.webp');
+	background-repeat: no-repeat;
+	background-size: 44px 10px;
+	background-position: 16px 14px;
+	/* border-top-color: #808080; */
+}
+
+pre,
+code {
+	color: #9cdcfe;
+	font-size: 13px;
+	text-shadow: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre::selection,
+code::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	pre,
+	code {
+		text-shadow: none;
+	}
+}
+
+pre {
+	padding: 2em;
+	padding-top: 40px;
+	margin: 0.5em 0;
+	overflow: auto;
+	/* background-color: #1e1e1e; */
+}
+
+:not(pre) > code {
+	padding: 0.1em 0.3em;
+	border-radius: 0.3em;
+	color: #db4c69;
+	background: #f9f2f4;
+}
+
+/*********************************************************
+* Tokens
+*/
+.namespace {
+	opacity: 0.7;
+}
+
+/*
+
+Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
+
+An adaptation of Sarah Drasner's Night Owl VS Code Theme
+https://github.com/sdras/night-owl-vscode-theme
+
+Copyright (c) 2018 Sarah Drasner
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+*/
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	padding: 0.5em;
+	color: #d6deeb;
+}
+
+/* General Purpose */
+.hljs-keyword {
+	color: #c792ea;
+	font-style: italic;
+}
+.hljs-built_in {
+	color: #addb67;
+	font-style: italic;
+}
+.hljs-type {
+	color: #82aaff;
+}
+.hljs-literal {
+	color: #ff5874;
+}
+.hljs-number {
+	color: #f78c6c;
+}
+.hljs-regexp {
+	color: #5ca7e4;
+}
+.hljs-string {
+	color: #ecc48d;
+}
+.hljs-subst {
+	color: #d3423e;
+}
+.hljs-symbol {
+	color: #82aaff;
+}
+.hljs-class {
+	color: #ffcb8b;
+}
+.hljs-function {
+	color: #82aaff;
+}
+.hljs-title {
+	color: #dcdcaa;
+	font-style: italic;
+}
+.hljs-params {
+	color: #7fdbca;
+}
+
+/* Meta */
+.hljs-comment {
+	color: #637777;
+	font-style: italic;
+}
+.hljs-doctag {
+	color: #7fdbca;
+}
+.hljs-meta {
+	color: #82aaff;
+}
+.hljs-meta-keyword {
+	color: #82aaff;
+}
+.hljs-meta-string {
+	color: #ecc48d;
+}
+
+/* Tags, attributes, config */
+.hljs-section {
+	color: #82b1ff;
+}
+.hljs-tag,
+.hljs-name,
+.hljs-builtin-name {
+	color: #7fdbca;
+}
+.hljs-attr {
+	color: #7fdbca;
+}
+.hljs-attribute {
+	color: #80cbc4;
+}
+.hljs-variable {
+	color: #addb67;
+}
+
+/* Markup */
+.hljs-bullet {
+	color: #d9f5dd;
+}
+.hljs-code {
+	color: #80cbc4;
+}
+.hljs-emphasis {
+	color: #c792ea;
+	font-style: italic;
+}
+.hljs-strong {
+	color: #addb67;
+	font-weight: bold;
+}
+.hljs-formula {
+	color: #c792ea;
+}
+.hljs-link {
+	color: #ff869a;
+}
+.hljs-quote {
+	color: #697098;
+	font-style: italic;
+}
+
+/* CSS */
+.hljs-selector-tag {
+	color: #ff6363;
+}
+
+.hljs-selector-id {
+	color: #fad430;
+}
+
+.hljs-selector-class {
+	color: #addb67;
+	font-style: italic;
+}
+
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+	color: #c792ea;
+	font-style: italic;
+}
+
+/* Templates */
+.hljs-template-tag {
+	color: #c792ea;
+}
+.hljs-template-variable {
+	color: #addb67;
+}
+
+/* diff */
+.hljs-addition {
+	color: #addb67ff;
+	font-style: italic;
+}
+
+.hljs-deletion {
+	color: #ef535090;
+	font-style: italic;
+}
+
+.token.namespace {
+	color: #4ec9b0;
+}
+/*********************************************************
+* Language Specific
+*/
+pre[class*='language-javascript'],
+code[class*='language-javascript'] {
+	color: #4ec9b0;
+}
+
+pre[class*='language-css'],
+code[class*='language-css'] {
+	color: #ce9178;
+}
+
+pre[class*='language-html'],
+code[class*='language-html'] {
+	color: #d4d4d4;
+}
+
+.language-html .token.punctuation {
+	color: #808080;
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+	position: relative;
+}
+
+pre > code {
+	position: relative;
+	z-index: 1;
+}
+
+.line-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: inherit 0;
+	margin-top: 1em;
+	background: #f7ebc6;
+	box-shadow: inset 5px 0 0 #f7d87c;
+	z-index: 0;
+	pointer-events: none;
+	line-height: inherit;
+	white-space: pre;
+}

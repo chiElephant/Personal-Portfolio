@@ -10,11 +10,11 @@ import { Logger } from 'winston'
 import ReactMarkdown from 'react-markdown'
 import rehypeHighlight from 'rehype-highlight'
 
-interface Params{
+interface Params {
 	params: { articleId: string }
 }
 
-export async function generateStaticParams(): Promise<{ articleId: string; }[]> {
+export async function generateStaticParams(): Promise<{ articleId: string }[]> {
 	const listLength = -1
 	const articlesList: ArticlesList = await getArticlesList(listLength)
 
@@ -23,7 +23,7 @@ export async function generateStaticParams(): Promise<{ articleId: string; }[]> 
 	}))
 }
 
-export async function generateMetadata({params}: Params) {
+export async function generateMetadata({ params }: Params) {
 	const { articleId } = params
 
 	const articleData: ArticleData = await getArticleData(articleId)
@@ -38,7 +38,9 @@ export async function generateMetadata({params}: Params) {
 	}
 }
 
-export default async function Article({ params }: Params): Promise<JSX.Element> {
+export default async function Article({
+	params,
+}: Params): Promise<JSX.Element> {
 	const log: Logger = logger()
 	const { articleId } = params
 
@@ -56,7 +58,7 @@ export default async function Article({ params }: Params): Promise<JSX.Element> 
 	}
 
 	return (
-		<main className=' mx-auto mt-16 md:max-w-7xl max-w-2xl px-6'>
+		<main className=' mx-auto mt-16 max-w-2xl px-6 md:max-w-7xl'>
 			<Container>
 				<header className='mb-10 max-w-2xl'>
 					<HeadingContainer
@@ -64,10 +66,8 @@ export default async function Article({ params }: Params): Promise<JSX.Element> 
 						paragraphText={date}
 					/>
 				</header>
-				<article className='prose prose-xl prose-p:text-zinc dark:prose-invert'>
-	 				<ReactMarkdown
-						rehypePlugins={[rehypeHighlight]}
-					>
+				<article className='prose-p:text-zinc prose prose-xl dark:prose-invert'>
+					<ReactMarkdown rehypePlugins={[rehypeHighlight]}>
 						{content}
 					</ReactMarkdown>
 

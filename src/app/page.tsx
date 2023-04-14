@@ -2,19 +2,18 @@ import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
 import ArticlesList from '@/app/articles/components/ArticlesList'
 import EmailListForm from '@/components/EmailListForm'
-import ExperienceList from '@/app/resume/components/ExperienceList'
+import ExperienceList from '@/app/experience/components/ExperienceList'
 import SocilaList from '@/components/SocialList'
 import ImageGrid from '@/components/ImageGrid'
 import { heading, paragraph } from './text/home'
-import { professional } from '@/app/resume/text/resume'
+import { professional } from '@/app/experience/text/resume'
 import getArticlesList from '@/lib/getArticlesList'
 
 export default async function Home(): Promise<JSX.Element> {
-	const articleData = await getArticlesList(3)
-	const articlesList = await articleData
-
+	const articlesList = await getArticlesList(3)
+	console.log(articlesList)
 	const content = (
-		<main className='md:mt-42 mt-36'>
+		<main className='mt-24'>
 			<Container>
 				<section>
 					<HeadingContainer
@@ -34,7 +33,7 @@ export default async function Home(): Promise<JSX.Element> {
 					<div className='flex flex-col gap-16'>
 						<ArticlesList
 							page={'home'}
-							articlesList={articlesList.articlesList}
+							articlesList={articlesList}
 						/>
 					</div>
 					<div className='space-y-10 lg:pl-16 xl:pl-24'>

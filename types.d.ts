@@ -1,5 +1,7 @@
-type ArticleData =  {
-  [x: string]: string
-} | undefined
+type ArticleData =
+	| {
+			[x: string]: string
+	  }
+	| undefined
 
 type ArticlesList = string[]

@@ -28,7 +28,7 @@ export default async function Articles(): Promise<JSX.Element> {
 						<div className='flex max-w-3xl flex-col space-y-16'>
 							<ArticlesList
 								page={'articles'}
-								articlesList={articlesList.articlesList}
+								articlesList={articlesList}
 							/>
 						</div>
 					</div>

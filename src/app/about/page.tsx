@@ -4,6 +4,11 @@ import HeroImage from '@/components/HeroImage'
 import Heading from '@/components/HeadingContainer'
 import { content } from '@/app/about/text/about'
 import ParagraphContainer from '@/app/about/components/ParagraphContainer'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: 'About',
+}
 
 export default function About(): JSX.Element {
 	return (

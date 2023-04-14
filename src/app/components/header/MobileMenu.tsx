@@ -4,7 +4,7 @@ interface Props {
 }
 
 export default function MobileMenu({ isOpen, setIsOpen }: Props) {
-	const pages = ['About', 'Projects', 'Resume', 'Stack', 'Articles']
+	const pages = ['Home', 'About', 'Projects', 'Experience', 'Articles']
 
 	const handleClick = () => {
 		setIsOpen(false)
@@ -53,7 +53,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: Props) {
 							>
 								<a
 									className='block py-2'
-									href={`/${page.toLowerCase()}`}
+									href={page === 'home' ? '/' : `/${page.toLowerCase()}`}
 								>
 									{page}
 								</a>

@@ -14,7 +14,7 @@ export default function ExperienceList({
 	experiences,
 }: Props): JSX.Element {
 	return (
-		<div className='rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40'>
+		<div className='rounded-2xl border border-zinc-100 p-6 shadow-md dark:border-zinc-700/40'>
 			{/* Experience List Heading and Icon */}
 			<h2 className='flex text-sm font-semibold text-zinc-900 dark:text-zinc-100'>
 				{type === 'Professional' ? <WorkIcon /> : ''}

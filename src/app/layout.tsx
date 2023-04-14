@@ -6,10 +6,11 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
 	title: {
 		template: '%s | Anthony Merino',
-		default: 'Home | Anthony Merino'
+		default: 'Home | Anthony Merino',
 	},
 	description: `I'm Anthony Merino. I live in Boulder, CO where I write code and play in the mountains.`,
-	keywords: 'Software Engineer, JavaScript, React, Next.js, Node.js, Tailwindcss, HTML',
+	keywords:
+		'Software Engineer, JavaScript, React, Next.js, Node.js, Tailwindcss, HTML',
 }
 
 export default function RootLayout({
