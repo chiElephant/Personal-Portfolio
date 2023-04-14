@@ -1,18 +1,12 @@
-/** @type {import('next').NextConfig} */
-
+// /** @type {import('next').NextConfig} */
 const nextConfig = {
-	reactStrictMode: true,
-	trailingSlash: true,
-
-	// async redirects() {
-	// 	return [
-	// 		{
-	// 			source: '/',
-	// 			destination: '/about',
-	// 			permanent: true,
-	// 		},
-	// 	]
-	// },
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  experimental: {
+    appDir: true,
+    // mdxRs: false,
+    // serverComponentsExternalPackages: ['rehype-highlight']
+  },
+  reactStrictMode: true,
 }
 
 module.exports = nextConfig

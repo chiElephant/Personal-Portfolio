@@ -1,0 +1,18 @@
+import Container from '@/components/Container'
+import HeadingContainer from '@/components/HeadingContainer'
+import ProjectList from './components/ProjectList'
+import { heading, paragraph, projects } from './text/projects'
+
+export default function Projects(): JSX.Element {
+	return (
+		<main className='md:mt-42 mt-36'>
+			<Container>
+				<HeadingContainer
+					headingText={heading}
+					paragraphText={paragraph}
+				/>
+				<ProjectList projects={projects} />
+			</Container>
+		</main>
+	)
+}
