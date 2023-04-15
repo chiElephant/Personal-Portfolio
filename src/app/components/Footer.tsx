@@ -16,7 +16,7 @@ export default function Footer() {
 										{pages.map((page) => (
 											<a
 												key={page}
-												href={`/${page}`.toLowerCase()}
+												href={page === 'Home' ? '/' : `/${page}`.toLowerCase()}
 												className='transition hover:text-teal-500 dark:hover:text-teal-400'
 											>
 												{page}

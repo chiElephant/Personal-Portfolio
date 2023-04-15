@@ -53,7 +53,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: Props) {
 							>
 								<a
 									className='block py-2'
-									href={page === 'home' ? '/' : `/${page.toLowerCase()}`}
+									href={page === 'Home' ? '/' : `/${page.toLowerCase()}`}
 								>
 									{page}
 								</a>

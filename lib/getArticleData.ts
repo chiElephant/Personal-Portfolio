@@ -1,21 +1,23 @@
-import redis from '@/lib/getRedis'
+import redis from '@/lib/redis'
 import logger from '@/util/logger'
 import { cache } from 'react'
 
-export default cache(async function getArticleData(
-	articleId: string
-): Promise<ArticleData> {
+const getArticleData = cache(async(articleId: string) => {
+	const client = await redis()
 	const log = logger()
 
-	const client = await redis()
-	let articleData
+	let articleData: { [x: string]: string } = {}
+	await client.hGetAll(`articles:${articleId}`)
+	.then(data => {
+		articleData = data
+	})
+	.catch(error => {
+		log.error('Error getting articles list: ', error)
+	})
 
-	try {
-		articleData = await client.hGetAll(`articles:${articleId}`)
-	} catch (error) {
-		log.error('Error retrieving article data: ', error)
-	}
-
-	client.quit()
+	client.disconnect()
 	return articleData
 })
+
+export default getArticleData
+

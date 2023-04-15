@@ -11,7 +11,7 @@ import getArticlesList from '@/lib/getArticlesList'
 
 export default async function Home(): Promise<JSX.Element> {
 	const articlesList = await getArticlesList(3)
-	console.log(articlesList)
+
 	const content = (
 		<main className='mt-24'>
 			<Container>

@@ -9,6 +9,7 @@ export default function ArticlesList({
 	articlesList,
 	page,
 }: Props): JSX.Element {
+
 	const content = (
 		<div className='flex flex-col gap-16'>
 			{articlesList.map((articleName: string) => (

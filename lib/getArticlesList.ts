@@ -1,18 +1,23 @@
-import redis from '@/lib/getRedis'
+import redis from '@/lib/redis'
 import logger from '@/util/logger'
 import { cache } from 'react'
 
-export default cache(async function getArticlesList(listLength: number) {
-	const log = logger()
+const getArticlesList = cache(async (listLength: number) => {
 	const client = await redis()
-	let articlesList
+	const log = logger()
 
-	try {
-		articlesList = await client.zRange('articles', 0, listLength, { REV: true })
-	} catch (error) {
-		log.error('Error retrieving articles list: ', error)
-	}
+	let articlesList: string[] = [];
+
+	await client.zRange('articles', 0, listLength, { REV: true })
+	.then((data) => {
+		articlesList = data
+	})
+	.catch(error => {
+		log.error('Error getting articles list: ', error)
+	})
 
 	client.disconnect()
 	return articlesList
 })
+
+export default getArticlesList

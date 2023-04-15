@@ -23,8 +23,7 @@
 			"@/*": ["./src/*"],
 			"@/components/*": ["./src/app/components/*"],
 			"@/util/*": ["./util/*"],
-			"@/lib/*": ["./lib/*"],
-			"@/controllers/*": ["-controllers/*"]
+			"@/lib/*": ["./lib/*"]
 		}
 	},
 	"include": [

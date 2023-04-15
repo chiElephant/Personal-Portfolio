@@ -1,4 +1,3 @@
-import styles from './Article.module.css'
 import getArticlesList from '@/lib/getArticlesList'
 import getArticleData from '@/lib/getArticleData'
 import { MDXRemote } from 'next-mdx-remote/rsc'
