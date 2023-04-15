@@ -15,12 +15,11 @@ export default function Avatar() {
 				>
 					<Image
 						alt=''
-						sizes='2.25rem'
-						src='/avatar/64.png'
-						width={512}
-						height={512}
+						src='/avatar.webp'
+						width={36}
+						height={36}
 						decoding='async'
-						className='color-transparent h-9 w-9 rounded-full bg-zinc-100 object-cover dark:bg-zinc-800'
+						className='color-transparent h-9 w-9 rounded-full bg-zinc-100 dark:bg-zinc-800'
 					/>
 				</Link>
 			</div>

@@ -16,7 +16,9 @@ export default async function Articles(): Promise<JSX.Element> {
 			<Container>
 				<header className='max-w-2xl'>
 					<HeadingContainer
-						headingText={'Writing on software development, web3, and topics I find interesting'}
+						headingText={
+							'Writing on software development, web3, and topics I find interesting'
+						}
 						paragraphText={`My thoughts, rantings, and advice on technology, leadership, and industry. Tools I use or am exploring and tips of the trade I've picked up along the way.`}
 					/>
 				</header>

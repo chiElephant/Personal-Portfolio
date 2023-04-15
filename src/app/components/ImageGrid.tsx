@@ -2,11 +2,11 @@ import Image from 'next/image'
 
 export default function ImageGrid() {
 	const images = [
-		'/chicago.png',
-		'/flatiron-color-small.png',
-		'/chicago.png',
-		'/flatiron-color-small.png',
-		'/chicago.png',
+		'/chicago.webp',
+		'/flatiron-color-small.webp',
+		'/chicago.webp',
+		'/flatiron-color-small.webp',
+		'/chicago.webp',
 	]
 
 	return (
@@ -23,9 +23,10 @@ export default function ImageGrid() {
 					>
 						<Image
 							src={image}
-							alt='LOGO'
-							width={2400}
-							height={3000}
+							alt='Logo'
+							width={300}
+							height={370}
+							decoding='async'
 						/>
 					</div>
 				))}

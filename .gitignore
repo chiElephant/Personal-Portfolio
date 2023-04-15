@@ -53,4 +53,5 @@ jest.setup.js
 #misc
 /.vscode
 /__backup__
+zphoto.js
 .gitignore

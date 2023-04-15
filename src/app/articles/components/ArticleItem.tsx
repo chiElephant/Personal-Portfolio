@@ -8,10 +8,7 @@ interface Props {
 	page: string
 }
 
-export default async function ArticleItem({
-	articleName,
-	page,
-}: Props): Promise<JSX.Element> {
+export default async function ArticleItem({ articleName, page }: Props) {
 	const articleData = await getArticleData(articleName)
 
 	return articleData !== undefined ? (

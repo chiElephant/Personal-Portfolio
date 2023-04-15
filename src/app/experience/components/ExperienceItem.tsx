@@ -31,7 +31,7 @@ export default function ExperienceItem({ experience }: Props): JSX.Element {
 						width={32}
 						height={32}
 						decoding='async'
-						className='h-7 w-7'
+						className='h-8 w-8 rounded-full'
 						loading='lazy'
 					/>
 				</div>

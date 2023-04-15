@@ -12,6 +12,7 @@ export default function ArticlesList({
 	const content = (
 		<div className='flex flex-col gap-16'>
 			{articlesList.map((articleName: string) => (
+				/* @ts-expect-error Server Component */
 				<ArticleItem
 					key={articleName}
 					articleName={articleName}

@@ -22,7 +22,7 @@ export const professional = [
 		role: 'Director of Operation',
 		dateStart: '2018',
 		dateEnd: '2020',
-		image: '/half-fast.svg',
+		image: '/half-fast.webp',
 	},
 	{
 		company: 'Avenue Sol',
@@ -50,7 +50,7 @@ export const professional = [
 		role: 'General Manager',
 		dateStart: '2005',
 		dateEnd: '2013',
-		image: '/half-fast.svg',
+		image: '/half-fast.webp',
 	},
 ]
 
@@ -115,6 +115,6 @@ export const certifications = [
 		expireDate: '',
 		credentialID: '',
 		credentialURL: '',
-		image: '/court.svg',
+		image: '/court.webp',
 	},
 ]

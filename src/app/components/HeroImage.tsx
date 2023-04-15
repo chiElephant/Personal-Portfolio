@@ -17,8 +17,8 @@ export default function HeroImage({ image }: Props) {
 					height={800}
 					width={800}
 					decoding='async'
-					loading='lazy'
 					className='darK:bg-moon aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover'
+					priority
 				/>
 			</div>
 		</div>
