@@ -15,6 +15,8 @@ export async function generateStaticParams() {
 			articleId: article,
 		}))
 	}
+
+	return notFound()
 }
 
 export async function generateMetadata({

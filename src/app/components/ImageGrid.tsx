@@ -3,9 +3,9 @@ import Image from 'next/image'
 export default function ImageGrid() {
 	const images = [
 		'/chicago.webp',
-		'/flatiron-color-small.webp',
+		'/flatirons.webp',
 		'/chicago.webp',
-		'/flatiron-color-small.webp',
+		'/flatirons.webp',
 		'/chicago.webp',
 	]
 

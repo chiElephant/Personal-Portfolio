@@ -8,14 +8,14 @@ export const professional = [
 		role: 'Founder/President',
 		dateStart: '2020',
 		dateEnd: '2022',
-		image: '/civil.svg',
+		image: '/civil-protocol.webp',
 	},
 	{
 		company: 'Bashful Elephant',
 		role: 'CEO',
 		dateStart: '2020',
 		dateEnd: '2022',
-		image: '/bashful.svg',
+		image: '/bashful-elephant.webp',
 	},
 	{
 		company: 'HFS Restaurants Inc.',
@@ -29,7 +29,7 @@ export const professional = [
 		role: 'Director of Business Operations',
 		dateStart: '2017',
 		dateEnd: '2018',
-		image: '/ave-sol.svg',
+		image: '/ave-sol.webp',
 	},
 	{
 		company: 'The Wireless Alliance',
@@ -67,14 +67,14 @@ export const education = [
 		focus: 'Business Managment: Strategy & Entreprenuership',
 		dateStart: '2015',
 		dateEnd: '2018',
-		image: '/CU.png',
+		image: '/cu.webp',
 	},
 	{
 		school: 'Univeristy of Colorado - Boulder',
 		focus: 'Psychology',
 		dateStart: '2003',
 		dateEnd: '2005',
-		image: '/CU.png',
+		image: '/cu.webp',
 	},
 ]
 
@@ -87,7 +87,7 @@ export const certifications = [
 		credentialID: 'd5649565138e45b9be4e64cd4cf2add6',
 		credentialURL:
 			'https://university.redis.com/certificates/d5649565138e45b9be4e64cd4cf2add6',
-		image: '/redis.svg',
+		image: '/redis.webp',
 	},
 	{
 		name: 'Tailwind CSS From Scratch',

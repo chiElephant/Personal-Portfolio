@@ -6,7 +6,7 @@ const getArticlesList = cache(async (listLength: number) => {
 	const client = await redis()
 	const log = logger()
 
-	let articlesList: string[] = []
+	let articlesList: any[] | Promise<any[]> = []
 
 	await client
 		.zRange('articles', 0, listLength, { REV: true })
