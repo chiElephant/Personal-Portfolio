@@ -6,15 +6,16 @@ const getArticlesList = cache(async (listLength: number) => {
 	const client = await redis()
 	const log = logger()
 
-	let articlesList: string[] = [];
+	let articlesList: string[] = []
 
-	await client.zRange('articles', 0, listLength, { REV: true })
-	.then((data) => {
-		articlesList = data
-	})
-	.catch(error => {
-		log.error('Error getting articles list: ', error)
-	})
+	await client
+		.zRange('articles', 0, listLength, { REV: true })
+		.then((data) => {
+			articlesList = data
+		})
+		.catch((error) => {
+			log.error('Error getting articles list: ', error)
+		})
 
 	client.disconnect()
 	return articlesList

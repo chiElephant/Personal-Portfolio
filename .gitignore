@@ -52,4 +52,5 @@ jest.setup.js
 
 #misc
 /.vscode
-/-controllers
+/__backup__
+.gitignore
