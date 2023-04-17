@@ -1,6 +1,6 @@
 export const heading = `Engineering and beyond. Experience, education and certifications.`
 
-export const paragraph = `My professional experience in hospitality management, business development and software engineering, education, and knowledge I've gained along the way.`
+export const paragraph = `My professional experience in hospitality management, business development and software engineering, my education, and knowledge I've gained along the way.`
 
 export const professional = [
 	{
@@ -36,14 +36,14 @@ export const professional = [
 		role: 'Director of Procurement',
 		dateStart: '2015',
 		dateEnd: '2017',
-		image: '/twa.svg',
+		image: '/twa.webp',
 	},
 	{
 		company: 'Three Leaf Concepts',
 		role: 'General Manager',
 		dateStart: '2013',
 		dateEnd: '2015',
-		image: '/three-leaf.svg',
+		image: '/three-leaf.webp',
 	},
 	{
 		company: 'Half Fast Inc.',
@@ -60,7 +60,7 @@ export const education = [
 		focus: 'Full Stack Software Engineering',
 		dateStart: '2021',
 		dateEnd: '2023',
-		image: '/hack-reactor.svg',
+		image: '/hack-reactor.webp',
 	},
 	{
 		school: 'Univeristy of Colorado - Boulder',
@@ -96,7 +96,7 @@ export const certifications = [
 		expireDate: '',
 		credentialID: 'UC-f3f3c247-3e09-4b22-a3a7-8d0fdf110584',
 		credentialURL: 'https://ude.my/UC-f3f3c247-3e09-4b22-a3a7-8d0fdf110584',
-		image: '/tailwind.svg',
+		image: '/tailwind.webp',
 	},
 	{
 		name: 'Blockchain Basics',
@@ -106,7 +106,7 @@ export const certifications = [
 		credentialID: '5BWDQ92UTWXK',
 		credentialURL:
 			'https://www.coursera.org/account/accomplishments/certificate/5BWDQ92UTWXK',
-		image: '/eth.svg',
+		image: '/eth.webp',
 	},
 	{
 		name: 'Introductory Sommelier',
