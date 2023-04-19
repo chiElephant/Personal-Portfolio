@@ -8,7 +8,7 @@ interface Props {
 	experienceId: string
 }
 
-export async function getData(experienceType: string, experienceId: string) {
+async function getData(experienceType: string, experienceId: string) {
 	return await getExperienceData(experienceType, experienceId)
 }
 

@@ -7,7 +7,7 @@ import ImageGrid from '@/components/ImageGrid'
 import getArticlesList from '@/lib/getArticlesList'
 import ProfessionalList from './experiences/components/ProfessionalList'
 
-export async function getList(listLength: number) {
+async function getList(listLength: number) {
 	return await getArticlesList(listLength)
 }
 

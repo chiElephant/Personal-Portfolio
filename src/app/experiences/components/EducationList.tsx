@@ -2,7 +2,7 @@ import EducationItem from './EducationItem'
 import EducationIcon from '@/app/icons/EducationIcon'
 import getExperienceTypeList from '@/lib/getExperienceTypeList'
 
-export async function getList() {
+async function getList() {
 	return await getExperienceTypeList('education')
 }
 

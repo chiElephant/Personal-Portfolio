@@ -12,18 +12,15 @@ type Params = {
 	}
 }
 
-export async function getList() {
+async function getList() {
 	return await getExperiencesList()
 }
 
-export async function getData(experienceType: string, experienceId: string) {
+async function getData(experienceType: string, experienceId: string) {
 	return await getExperienceData(experienceType, experienceId)
 }
 
-export async function experienceExists(
-	experienceType: string,
-	experienceId: string
-) {
+async function experienceExists(experienceType: string, experienceId: string) {
 	const experiencesList = await getList()
 	return experiencesList.find(
 		(element) => element === `${experienceType}:${experienceId}`
@@ -83,11 +80,11 @@ export default async function Experience({ params }: Params) {
 	}
 
 	const content =
-		/* @ts-expect-error Async Server Component Workaround */
 		experienceType === 'professional' ? (
+			/* @ts-expect-error Async Server Component Workaround */
 			<ProfessionalExperience experienceId={experienceId} />
-		) : /* @ts-expect-error Async Server Component Workaround */
-		experienceType === 'education' ? (
+		) : experienceType === 'education' ? (
+			/* @ts-expect-error Async Server Component Workaround */
 			<EducationalExperience experienceId={experienceId} />
 		) : (
 			/* @ts-expect-error Async Server Component Workaround */

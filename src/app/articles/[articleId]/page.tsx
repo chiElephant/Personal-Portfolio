@@ -13,15 +13,15 @@ type Params = {
 	}
 }
 
-export async function getList(listLength: number) {
+async function getList(listLength: number) {
 	return await getArticlesList(listLength)
 }
 
-export async function getData(articleId: string) {
+async function getData(articleId: string) {
 	return await getArticleData(articleId)
 }
 
-export async function articleExists(articleId: string) {
+async function articleExists(articleId: string) {
 	const articlesList = await getList(-1)
 	return articlesList.find((article) => article === `${articleId}`)
 }

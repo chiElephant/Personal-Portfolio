@@ -5,8 +5,7 @@ import Link from 'next/link'
 interface Props {
 	experienceId: string
 }
-
-export async function getData(experienceId: string) {
+async function getData(experienceId: string) {
 	return await getExperienceData('professional', experienceId)
 }
 

@@ -3,7 +3,7 @@ import DownloadResumeBtn from '@/app/components/DownloadResumeBtn'
 import ProfessionalItem from './ProfessionalItem'
 import getExperienceTypeList from '@/lib/getExperienceTypeList'
 
-export async function getList() {
+async function getList() {
 	return await getExperienceTypeList('professional')
 }
 

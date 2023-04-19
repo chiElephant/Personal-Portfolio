@@ -7,7 +7,7 @@ interface Props {
 	projects: any
 }
 
-export async function getList() {
+async function getList() {
 	return await getExperienceTypeList('professional')
 }
 

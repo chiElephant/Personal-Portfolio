@@ -2,7 +2,7 @@ import getExperienceTypeList from '@/lib/getExperienceTypeList'
 import CertificationItem from './CertificationItem'
 import CertificationIcon from '@/app/icons/CertificationIcon'
 
-export async function getList() {
+async function getList() {
 	return await getExperienceTypeList('certifications')
 }
 

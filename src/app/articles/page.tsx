@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 	title: 'Articles',
 }
 
-export async function getList(listLength: number) {
+async function getList(listLength: number) {
 	return await getArticlesList(listLength)
 }
 

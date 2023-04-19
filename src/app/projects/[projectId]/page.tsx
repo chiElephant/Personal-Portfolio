@@ -12,15 +12,15 @@ type Params = {
 	}
 }
 
-export async function getList() {
+async function getList() {
 	return await getProjectsList()
 }
 
-export async function getData(projectId: string) {
+async function getData(projectId: string) {
 	return await getProjectData(projectId)
 }
 
-export async function projectExists(projectId: string) {
+async function projectExists(projectId: string) {
 	const projectsList = await getList()
 	return projectsList.find((project) => project === `${projectId}`)
 }
