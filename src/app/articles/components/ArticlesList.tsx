@@ -11,11 +11,11 @@ export default function ArticlesList({
 }: Props): JSX.Element {
 	const content = (
 		<div className='flex flex-col gap-16'>
-			{articlesList.map((articleName: string) => (
+			{articlesList.map((articleId: string) => (
 				/* @ts-expect-error Server Component */
 				<ArticleItem
-					key={articleName}
-					articleName={articleName}
+					key={articleId}
+					articleId={articleId}
 					page={page}
 				/>
 			))}

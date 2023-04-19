@@ -8,8 +8,12 @@ export const metadata: Metadata = {
 	title: 'Articles',
 }
 
+export async function getList(listLength: number) {
+	return await getArticlesList(listLength)
+}
+
 export default async function Articles(): Promise<JSX.Element> {
-	const articlesList = await getArticlesList(-1)
+	const articlesList = await getList(-1)
 
 	const content: JSX.Element = (
 		<main className='md:mt-42 mt-36'>

@@ -4,7 +4,7 @@ import MenuItem from './MenuItem'
 export default function MenuList() {
 	const [activePage, setActivePage] = useState('home')
 
-	const pages = ['Home', 'About', 'Projects', 'Experience', 'Articles']
+	const pages = ['Home', 'About', 'Projects', 'Experiences', 'Articles']
 
 	return (
 		<div

@@ -1,7 +1,6 @@
 import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
-import ProjectList from './components/ProjectList'
-import { heading, paragraph, projects } from './text/projects'
+import ProjectGrid from './components/ProjectGrid'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -13,10 +12,11 @@ export default function Projects(): JSX.Element {
 		<main className='md:mt-42 mt-36'>
 			<Container>
 				<HeadingContainer
-					headingText={heading}
-					paragraphText={paragraph}
+					headingText={`Things I've made to display my skills and proficiencies.`}
+					paragraphText={`Here are some of the recent things I've made that I'm proud of. Most of my projects are public on GitHub, so if you see something that piques your interest, checkout out the code and feel free to get in touch with any questions or ideas for how it can be improved.`}
 				/>
-				<ProjectList projects={projects} />
+				{/* @ts-expect-error Server Component */}
+				<ProjectGrid />
 			</Container>
 		</main>
 	)

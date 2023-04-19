@@ -4,12 +4,16 @@ import getArticleData from '@/lib/getArticleData'
 import { notFound } from 'next/navigation'
 
 interface Props {
-	articleName: string
+	articleId: string
 	page: string
 }
 
-export default async function ArticleItem({ articleName, page }: Props) {
-	const articleData = await getArticleData(articleName)
+export async function getData(articleId: string) {
+	return await getArticleData(articleId)
+}
+
+export default async function ArticleItem({ articleId, page }: Props) {
+	const articleData = await getData(articleId)
 
 	return articleData !== undefined ? (
 		<>

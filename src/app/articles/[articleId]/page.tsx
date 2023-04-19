@@ -7,25 +7,40 @@ import Link from 'next/link'
 import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
 
+type Params = {
+	params: {
+		articleId: string
+	}
+}
+
+export async function getList(listLength: number) {
+	return await getArticlesList(listLength)
+}
+
+export async function getData(articleId: string) {
+	return await getArticleData(articleId)
+}
+
+export async function articleExists(articleId: string) {
+	const articlesList = await getList(-1)
+	return articlesList.find((article) => article === `${articleId}`)
+}
+
 export async function generateStaticParams() {
-	const articlesList = await getArticlesList(-1)
+	const articlesList = await getList(-1)
 
 	if (articlesList) {
-		return articlesList.map((article: string) => ({
-			articleId: article,
+		return articlesList.map((articleId: string) => ({
+			articleId,
 		}))
 	}
 
 	return notFound()
 }
 
-export async function generateMetadata({
-	params,
-}: {
-	params: { articleId: string }
-}) {
+export async function generateMetadata({ params }: Params) {
 	const { articleId } = params
-	const articleData = await getArticleData(articleId)
+	const articleData = await getData(articleId)
 
 	if (!articleData) {
 		return {
@@ -37,23 +52,23 @@ export async function generateMetadata({
 	}
 }
 
-type Params = {
-	params: {
-		articleId: string
-	}
-}
-
 export default async function Article({ params }: Params) {
 	const { articleId } = params
+	const exists = await articleExists(articleId)
 
-	const articleData = await getArticleData(articleId)
+	if (!exists) {
+		return notFound()
+	}
+
+	const articleData = await getData(articleId)
+
 	const mdxOptions = {
 		mdxOptions: {
 			rehypePlugins: [rehypeHighlight],
 		},
 	}
 
-	const content = articleData ? (
+	const content = (
 		<main className=' mx-auto mt-20 max-w-xl px-6 md:mt-14 md:max-w-7xl'>
 			<Container>
 				<header className='mb-10 max-w-2xl'>
@@ -79,8 +94,6 @@ export default async function Article({ params }: Params) {
 				</article>
 			</Container>
 		</main>
-	) : (
-		notFound()
 	)
 
 	return content

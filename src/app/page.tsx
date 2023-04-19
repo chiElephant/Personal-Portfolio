@@ -2,14 +2,22 @@ import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
 import ArticlesList from '@/app/articles/components/ArticlesList'
 import EmailListForm from '@/components/EmailListForm'
-import ExperienceList from '@/app/experience/components/ExperienceList'
 import SocilaList from '@/components/SocialList'
 import ImageGrid from '@/components/ImageGrid'
-import { professional } from '@/app/experience/text/resume'
 import getArticlesList from '@/lib/getArticlesList'
+import ProfessionalList from './experiences/components/ProfessionalList'
+
+export async function getList(listLength: number) {
+	return await getArticlesList(listLength)
+}
+
+// export async function getArticlesList(listLength: number) {
+// 	return await fetch(`/articles?length=${listLength}`)
+// }
 
 export default async function Home(): Promise<JSX.Element> {
-	const articlesList = await getArticlesList(3)
+	const articlesList = await getList(3)
+	// const articlesList = await getArticlesList(3)
 
 	const content = (
 		<main className='mt-24'>
@@ -39,10 +47,8 @@ export default async function Home(): Promise<JSX.Element> {
 					</div>
 					<div className='space-y-10 lg:pl-16 xl:pl-24'>
 						<EmailListForm />
-						<ExperienceList
-							type={'Professional'}
-							experiences={professional}
-						/>
+						{/* @ts-expect-error Async Server Component Workaround */}
+						<ProfessionalList />
 					</div>
 				</section>
 			</Container>

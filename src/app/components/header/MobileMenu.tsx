@@ -4,7 +4,7 @@ interface Props {
 }
 
 export default function MobileMenu({ isOpen, setIsOpen }: Props) {
-	const pages = ['Home', 'About', 'Projects', 'Experience', 'Articles']
+	const pages = ['Home', 'About', 'Projects', 'Experiences', 'Articles']
 
 	const handleClick = () => {
 		setIsOpen(false)
