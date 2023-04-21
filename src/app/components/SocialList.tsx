@@ -7,13 +7,13 @@ import LinkedInIcon from '../icons/LinkedInIcon'
 import EmailIcon from '../icons/EmailIcon'
 
 interface Props {
-	page: string
+	style: string
 }
 interface ExternalLinks {
 	[key: string]: Url
 }
 
-export default function SocilaLList({ page }: Props) {
+export default function SocilaLList({ style }: Props) {
 	const platforms = ['Twitter', 'Instagram', 'GitHub', 'LinkedIn', 'email']
 	const externalLinks: ExternalLinks = {
 		twitter: 'https://twitter.com/anthony_merino',
@@ -29,7 +29,7 @@ export default function SocilaLList({ page }: Props) {
 				<li
 					key={platform}
 					className={
-						platform === 'email' && page === 'about'
+						platform === 'email' && style === 'rows'
 							? 'mt-8 flex border-t border-zinc-100 pt-8 dark:border-zinc-700/40'
 							: 'mt-4 flex'
 					}
@@ -44,7 +44,7 @@ export default function SocilaLList({ page }: Props) {
 						{platform === 'GitHub' ? <GitHubIcon /> : ''}
 						{platform === 'LinkedIn' ? <LinkedInIcon /> : ''}
 						{platform === 'email' ? <EmailIcon /> : ''}
-						{page === 'about' ? (
+						{style === 'rows' ? (
 							<span className={'ml-4'}>
 								{platform === 'email'
 									? 'anthony.merino@me.com'

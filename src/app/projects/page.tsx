@@ -1,6 +1,6 @@
 import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
-import ProjectGrid from './components/ProjectGrid'
+import ProjectGrid from '@/components/ProjectGrid'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Projects(): JSX.Element {
 	return (
-		<main className='md:mt-42 mt-36'>
+		<main className='md:mt-42 mt-28'>
 			<Container>
 				<HeadingContainer
 					headingText={`Things I've made to display my skills and proficiencies.`}

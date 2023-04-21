@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
-import ArticlesList from '@/app/articles/components/ArticlesList'
+import ArticlesList from '@/components/ArticlesList'
 import getArticlesList from '@/lib/getArticlesList'
+import EmailListForm from '@/components/EmailListForm'
 
 export const metadata: Metadata = {
 	title: 'Articles',
@@ -26,16 +27,21 @@ export default async function Articles(): Promise<JSX.Element> {
 						paragraphText={`My thoughts, rantings, and advice on technology, leadership, and industry. Tools I use or am exploring and tips of the trade I've picked up along the way.`}
 					/>
 				</header>
+			</Container>
 
+			<Container>
 				{/* Post board container */}
-				<section className='mt-16 sm:mt-20'>
-					<div className='md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40'>
-						<div className='flex max-w-3xl flex-col space-y-16'>
-							<ArticlesList
-								page={'articles'}
-								articlesList={articlesList}
-							/>
-						</div>
+				<section className='mx-auto mt-16 grid max-w-xl grid-cols-1 gap-y-20 sm:mt-20 lg:max-w-none lg:grid-cols-2'>
+					{/* <div className='mb-32 md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40'> */}
+					<div className='mb-32 flex max-w-3xl flex-col space-y-16 md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40'>
+						<ArticlesList
+							page={'articles'}
+							articlesList={articlesList}
+						/>
+					</div>
+					{/* </div> */}
+					<div className='space-y-10 lg:pl-16 xl:pl-24'>
+						<EmailListForm />
 					</div>
 				</section>
 			</Container>

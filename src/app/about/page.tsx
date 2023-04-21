@@ -2,7 +2,7 @@ import Container from '@/components/Container'
 import SocialList from '@/components/SocialList'
 import HeroImage from '@/components/HeroImage'
 import Heading from '@/components/HeadingContainer'
-import ParagraphContainer from '@/app/about/components/ParagraphContainer'
+import ParagraphContainer from '@/components/ParagraphContainer'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function About(): JSX.Element {
 		<main className='md:mt-42 mt-36'>
 			<Container>
 				<div className='lg:grid-rows-[auto_1fr]. grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-y-12'>
-					<HeroImage image='/flatirons-bw.webp' />
+					<HeroImage />
 
 					<section className='lg:order-first lg:row-span-2'>
 						<Heading
@@ -47,7 +47,7 @@ export default function About(): JSX.Element {
 
 					<div className='lg:pl-20'>
 						<ul>
-							<SocialList page={'about'} />
+							<SocialList style={'rows'} />
 						</ul>
 					</div>
 				</div>

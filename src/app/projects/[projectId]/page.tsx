@@ -1,10 +1,8 @@
 import getProjectsList from '@/lib/getProjectsList'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
 import getProjectData from '@/lib/getProjectsData'
-import LinkIcon from '@/app/icons/LinkIcon'
 
 type Params = {
 	params: {

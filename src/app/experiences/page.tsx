@@ -2,10 +2,9 @@ import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
 import DownloadResumeBtn from '@/components/DownloadResumeBtn'
 import { Metadata } from 'next'
-import EducationList from './components/EducationList'
-import CertificationsList from './components/CertificationsList'
-import ProfessionalGrid from './components/ProfessionalGrid'
-import WorkIcon from '@/app/icons/WorkIcon'
+import EducationList from '@/components/EducationList'
+import CertificationsList from '@/components/CertificationsList'
+import ProfessionalGrid from '@/components/ProfessionalGrid'
 
 export const metadata: Metadata = {
 	title: 'Experience',

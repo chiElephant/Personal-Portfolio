@@ -2,11 +2,11 @@ import Image from 'next/image'
 
 export default function ImageGrid() {
 	const images = [
-		'/chicago.webp',
-		'/flatirons.webp',
-		'/chicago.webp',
-		'/flatirons.webp',
-		'/chicago.webp',
+		'/chicago-day.webp',
+		'/boulder-night.webp',
+		'/ai-profile-outside.webp',
+		'/chicago-night.webp',
+		'/boulder-day.webp',
 	]
 
 	return (
@@ -16,6 +16,7 @@ export default function ImageGrid() {
 					<div
 						key={`${image}${i}`}
 						className={
+							//  This conditional tilts the 2nd and 5th image counter-clockwise
 							i === 1 || i === 4
 								? 'relative aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl'
 								: 'relative aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl'

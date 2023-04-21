@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation'
 import getExperiencesList from '@/lib/getExperiencesList'
 import getExperienceData from '@/lib/getExperienceData'
-import ProfessionalExperience from './components/ProfessionalExperience'
-import EducationalExperience from './components/EducationalExperience'
-import CertificationExperience from './components/CertificationExperience'
+import ProfessionalExperience from '@/components/ProfessionalExperience'
+import EducationalExperience from '@/components/EducationalExperience'
+import CertificationExperience from '@/components/CertificationExperience'
 
 type Params = {
 	params: {
