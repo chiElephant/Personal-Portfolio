@@ -4,7 +4,7 @@ interface Props {
 	image: string
 }
 
-export default function HeroImage() {
+export default function HeroImage({ image }: Props) {
 	return (
 		<div
 			className='lg:pl-20'
@@ -12,7 +12,7 @@ export default function HeroImage() {
 		>
 			<div className='max-w-xs px-2.5 lg:max-w-none'>
 				<Image
-					src={'/ai-profile-desk.webp'}
+					src={image}
 					alt='A.M'
 					height={800}
 					width={800}

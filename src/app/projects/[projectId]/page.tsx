@@ -1,8 +1,12 @@
 import getProjectsList from '@/lib/getProjectsList'
 import { notFound } from 'next/navigation'
-import Container from '@/components/Container'
-import HeadingContainer from '@/components/HeadingContainer'
 import getProjectData from '@/lib/getProjectsData'
+import HeadingContainer from '@/app/components/HeadingContainer'
+import HeroImage from '@/app/components/HeroImage'
+import Container from '@/app/components/Container'
+import InformationCard from '@/app/components/InformationCard'
+import StackList from '@/app/components/StackList'
+import ProjectVideo from '@/app/components/ProjectVideo'
 
 type Params = {
 	params: {
@@ -31,7 +35,6 @@ export async function generateStaticParams() {
 			projectId,
 		}))
 	}
-
 	return notFound()
 }
 
@@ -60,18 +63,33 @@ export default async function Article({ params }: Params) {
 		return notFound()
 	}
 
-	const projectData = await getData(projectId)
+	const { name, summary, image, stack } = await getData(projectId)
 
 	const content = (
-		<main className=' mx-auto mt-20 max-w-xl px-6 md:mt-14 md:max-w-7xl'>
+		<main className='mt-42 mt-36'>
 			<Container>
-				<header className='mb-10 max-w-2xl'>
-					<HeadingContainer
-						headingText={projectData.name}
-						paragraphText={projectData.summary}
-					/>
-				</header>
-				<article className=' article prose prose-xl dark:prose-invert'></article>
+				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
+					<HeroImage image={image} />
+
+					<section className='lg:order-first lg:row-span-2'>
+						<HeadingContainer
+							headingText={name}
+							paragraphText={summary}
+						/>
+
+						{/* @ts-expect-error Async Server Component Workaround */}
+						<InformationCard projectId={projectId} />
+
+						<ProjectVideo
+							projectName={name}
+							projectImage={image}
+						/>
+					</section>
+
+					<section className='lg:pl-20'>
+						<StackList stackList={stack} />
+					</section>
+				</div>
 			</Container>
 		</main>
 	)
