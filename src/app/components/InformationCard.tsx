@@ -1,23 +1,39 @@
 import getProjectData from '@/lib/getProjectsData'
+import getExperienceData from '@/lib/getExperienceData'
+import { notFound } from 'next/navigation'
 import Image from 'next/image'
-import Link from 'next/link'
 import LinkIcon from '../icons/LinkIcon'
+import Link from 'next/link'
 import GitHubIcon from '../icons/GitHubIcon'
+import ProfessionalList from './ProfessionalList'
 
 interface Props {
-	projectId: string
+	dataType: string
+	dataId: string
 }
 
-export default async function InformationCard({ projectId }: Props) {
-	const { name, image, link, linkText } = await getProjectData(projectId)
+export async function getData(dataType: string, dataId: string) {
+	if (dataType === 'project') {
+		return await getProjectData(dataId)
+	} else {
+		return await getExperienceData(dataType, dataId)
+	}
+}
 
-	return (
+export default async function InformationCard({ dataType, dataId }: Props) {
+	const data = await getData(dataType, dataId)
+
+	if (Boolean(!data)) {
+		return notFound()
+	}
+
+	const content = (
 		<div className='mt-20'>
-			<section className='flex flex-row'>
+			<section className='ml-8 flex flex-row items-center'>
 				<div>
 					<Image
-						alt={name}
-						src={image}
+						alt={data.name || data.company || data.school || data.issuingOrg}
+						src={data.icon}
 						height={60}
 						width={60}
 						className='rounded-lg'
@@ -27,12 +43,20 @@ export default async function InformationCard({ projectId }: Props) {
 				<div className='ml-6 flex flex-col'>
 					<div className='flex gap-x-2'>
 						<LinkIcon />
-						<Link href={link}>{`${linkText}`}</Link>
+						<Link href={data.externalLink || ''}>
+							{`${data.linkText}` || ''}
+						</Link>
 					</div>
-					<div className='mt-4 flex gap-x-2'>
-						<GitHubIcon />
-						<Link href={link}>Source Code</Link>
-					</div>
+
+					{/* If the data is for a project, include the GitHub link */}
+					{dataType === 'project' ? (
+						<div className='mt-4 flex gap-x-2'>
+							<GitHubIcon />
+							<Link href={data.githubLink}>Source Code</Link>
+						</div>
+					) : (
+						''
+					)}
 				</div>
 			</section>
 
@@ -67,4 +91,6 @@ export default async function InformationCard({ projectId }: Props) {
 			</section>
 		</div>
 	)
+
+	return content
 }

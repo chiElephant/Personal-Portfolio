@@ -16,9 +16,12 @@ export default function Experience(): JSX.Element {
 			<main className='md:mt-42 mt-36'>
 				<Container>
 					<section>
+						{/* @ts-expect-error Async Server Component Workaround */}
 						<HeadingContainer
 							headingText={`Engineering and beyond. Experience, education and certifications.`}
 							paragraphText={`My professional experience in hospitality management, business development and software engineering, my education, and knowledge I've gained along the way.`}
+							dataType={undefined}
+							dataId={undefined}
 						/>
 						<div className='flex max-w-2xl items-center'>
 							<div className='pl-0'>

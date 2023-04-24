@@ -1,16 +1,17 @@
 import Image from 'next/image'
 
 interface Props {
-	projectName: string
-	projectImage: string
+	project: { [x: string]: string }
 }
 
-export default function ProjectVideo({ projectName, projectImage }: Props) {
+export default function ProjectVideo({ project }: Props) {
+	const { name, image } = project
+
 	return (
-		<div className='mt-16 flex justify-center'>
+		<div className='mt-24 flex justify-center'>
 			<Image
-				alt={projectName}
-				src={projectImage}
+				alt={name}
+				src={image}
 				width={400}
 				height={100}
 			/>

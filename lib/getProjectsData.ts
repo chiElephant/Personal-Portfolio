@@ -7,6 +7,7 @@ const getProjectData = cache(async (projectName: string) => {
 	const log = logger()
 
 	let projectData: { [x: string]: string } = {}
+
 	await client
 		.hGetAll(`projects:${projectName}`)
 		.then((data) => {
@@ -14,6 +15,7 @@ const getProjectData = cache(async (projectName: string) => {
 		})
 		.catch((error) => {
 			log.error('Error getting articles list: ', error)
+			return error
 		})
 
 	client.disconnect()

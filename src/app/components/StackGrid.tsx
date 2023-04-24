@@ -5,8 +5,8 @@ interface Props {
 	stack: string
 }
 
-export default function ProjectStack({ stack }: Props) {
-	const stackItems = stack.split(', ').sort()
+export default function StackGrid({ stack }: Props) {
+	const stackItems = stack.split(', ').slice(0, 4)
 
 	return (
 		<div className='z-40 mx-auto mt-10 flex sm:mt-12'>
@@ -18,7 +18,9 @@ export default function ProjectStack({ stack }: Props) {
 						src={`/stack/${stackItem}.webp`}
 						width={48}
 						height={48}
-						className={'rounded-lg'}
+						className={
+							'rounded-lg shadow-lg shadow-zinc-400 dark:shadow-zinc-950'
+						}
 					/>
 				))}
 			</ul>

@@ -17,9 +17,12 @@ export default function About(): JSX.Element {
 					<HeroImage image={'/ai-profile-desk.webp'} />
 
 					<section className='lg:order-first lg:row-span-2'>
+						{/* @ts-expect-error Async Server Component Workaround */}
 						<Heading
 							headingText={`Hey there! My name is Anthony, and it's a pleasure to meet you.`}
 							paragraphText={`I live in Boulder, CO. I like to write code and play in the mountains. Let me tell you a bit about my journey so far.`}
+							dataType={undefined}
+							dataId={undefined}
 						/>
 
 						<ParagraphContainer

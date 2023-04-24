@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation'
 import getExperiencesList from '@/lib/getExperiencesList'
 import getExperienceData from '@/lib/getExperienceData'
-import ProfessionalExperience from '@/components/ProfessionalExperience'
-import EducationalExperience from '@/components/EducationalExperience'
-import CertificationExperience from '@/components/CertificationExperience'
+import Container from '@/app/components/Container'
+import HeadingContainer from '@/app/components/HeadingContainer'
+import InformationCard from '@/app/components/InformationCard'
+import ProfessionalList from '@/app/components/ProfessionalList'
 
 type Params = {
 	params: {
@@ -12,12 +13,12 @@ type Params = {
 	}
 }
 
-async function getList() {
-	return await getExperiencesList()
-}
-
 async function getData(experienceType: string, experienceId: string) {
 	return await getExperienceData(experienceType, experienceId)
+}
+
+async function getList() {
+	return await getExperiencesList()
 }
 
 async function experienceExists(experienceType: string, experienceId: string) {
@@ -30,7 +31,7 @@ async function experienceExists(experienceType: string, experienceId: string) {
 export async function generateStaticParams() {
 	const experienceList = await getList()
 
-	if (experienceList) {
+	if (Boolean(experienceList)) {
 		return experienceList.map((experience: string) => {
 			const experienceType = experience.split(':')[0]
 			const experienceId = experience.split(':')[1]
@@ -75,21 +76,37 @@ export default async function Experience({ params }: Params) {
 	const { experienceType, experienceId } = params
 	const exists = await experienceExists(experienceType, experienceId)
 
-	if (!exists) {
+	if (Boolean(!exists)) {
 		return notFound()
 	}
 
-	const content =
-		experienceType === 'professional' ? (
-			/* @ts-expect-error Async Server Component Workaround */
-			<ProfessionalExperience experienceId={experienceId} />
-		) : experienceType === 'education' ? (
-			/* @ts-expect-error Async Server Component Workaround */
-			<EducationalExperience experienceId={experienceId} />
-		) : (
-			/* @ts-expect-error Async Server Component Workaround */
-			<CertificationExperience experienceId={experienceId} />
-		)
+	const content = (
+		<main className='mt-42 mt-36 text-zinc-800 dark:text-zinc-100'>
+			<Container>
+				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
+					<section className='lg:order-first lg:row-span-2'>
+						{/* @ts-expect-error Server Component */}
+						<HeadingContainer
+							dataType={experienceType}
+							dataId={experienceId}
+							headingText={undefined}
+							paragraphText={undefined}
+						/>
+						{/* @ts-expect-error Server Component */}
+						<InformationCard
+							dataType={experienceType}
+							dataId={experienceId}
+						/>
+					</section>
+
+					<section className='mt-16 lg:ml-24 lg:mt-40'>
+						{/* @ts-expect-error Async Server Component Workaround */}
+						<ProfessionalList />
+					</section>
+				</div>
+			</Container>
+		</main>
+	)
 
 	return content
 }

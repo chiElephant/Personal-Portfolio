@@ -59,35 +59,38 @@ export default async function Article({ params }: Params) {
 	const { projectId } = params
 	const exists = await projectExists(projectId)
 
-	if (!exists) {
+	if (Boolean(!exists)) {
 		return notFound()
 	}
 
-	const { name, summary, image, stack } = await getData(projectId)
+	const project = await getData(projectId)
 
 	const content = (
-		<main className='mt-42 mt-36'>
+		<main className='mt-42 mt-36 text-zinc-800 dark:text-zinc-100'>
 			<Container>
 				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
-					<HeroImage image={image} />
+					<HeroImage image={project.image} />
 
 					<section className='lg:order-first lg:row-span-2'>
+						{/* @ts-expect-error Async Server Component Workaround */}
 						<HeadingContainer
-							headingText={name}
-							paragraphText={summary}
+							dataType={'project'}
+							dataId={projectId}
+							headingText={undefined}
+							paragraphText={undefined}
 						/>
 
 						{/* @ts-expect-error Async Server Component Workaround */}
-						<InformationCard projectId={projectId} />
-
-						<ProjectVideo
-							projectName={name}
-							projectImage={image}
+						<InformationCard
+							dataType={'project'}
+							dataId={projectId}
 						/>
+
+						<ProjectVideo project={project} />
 					</section>
 
 					<section className='lg:pl-20'>
-						<StackList stackList={stack} />
+						<StackList project={project} />
 					</section>
 				</div>
 			</Container>
