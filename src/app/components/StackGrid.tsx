@@ -15,7 +15,7 @@ export default function StackGrid({ stack }: Props) {
 					<Image
 						key={stackItem}
 						alt={stackItem}
-						src={`/stack/${stackItem}.webp`}
+						src={`/stack/${stackItem.toLowerCase()}.webp`}
 						width={48}
 						height={48}
 						className={

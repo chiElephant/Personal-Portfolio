@@ -1,12 +1,12 @@
-import getProjectsList from '@/lib/getProjectsList'
 import { notFound } from 'next/navigation'
-import getProjectData from '@/lib/getProjectsData'
 import HeadingContainer from '@/app/components/HeadingContainer'
 import HeroImage from '@/app/components/HeroImage'
 import Container from '@/app/components/Container'
 import InformationCard from '@/app/components/InformationCard'
-import StackList from '@/app/components/StackList'
 import ProjectVideo from '@/app/components/ProjectVideo'
+import List from '@/app/components/List'
+import getData from '@/lib/getData'
+import getList from '@/lib/getList'
 
 type Params = {
 	params: {
@@ -14,41 +14,25 @@ type Params = {
 	}
 }
 
-async function getList() {
-	return await getProjectsList()
-}
-
-async function getData(projectId: string) {
-	return await getProjectData(projectId)
-}
-
-async function projectExists(projectId: string) {
-	const projectsList = await getList()
-	return projectsList.find((project) => project === `${projectId}`)
-}
-
 export async function generateStaticParams() {
-	const projectsList = await getList()
+	const projectsList = await getList('projects')
 
-	if (projectsList) {
-		return projectsList.map((projectId: string) => ({
-			projectId,
-		}))
+	if (projectsList === null) {
+		return notFound()
 	}
-	return notFound()
+
+	return projectsList.map((projectId: string) => ({ projectId }))
 }
 
 export async function generateMetadata({ params }: Params) {
 	const { projectId } = params
-	const exists = await projectExists(projectId)
+	const projectData = await getData('projects', projectId)
 
-	if (!exists) {
+	if (projectData === null) {
 		return {
 			title: 'Project Not Found',
 		}
 	}
-
-	const projectData = await getData(projectId)
 
 	return {
 		title: projectData.name,
@@ -57,13 +41,11 @@ export async function generateMetadata({ params }: Params) {
 
 export default async function Article({ params }: Params) {
 	const { projectId } = params
-	const exists = await projectExists(projectId)
+	const project = await getData('projects', projectId)
 
-	if (Boolean(!exists)) {
+	if (project === null) {
 		return notFound()
 	}
-
-	const project = await getData(projectId)
 
 	const content = (
 		<main className='mt-42 mt-36 text-zinc-800 dark:text-zinc-100'>
@@ -74,15 +56,15 @@ export default async function Article({ params }: Params) {
 					<section className='lg:order-first lg:row-span-2'>
 						{/* @ts-expect-error Async Server Component Workaround */}
 						<HeadingContainer
-							dataType={'project'}
+							dataType={'projects'}
 							dataId={projectId}
-							headingText={undefined}
-							paragraphText={undefined}
+							headingText={null}
+							paragraphText={null}
 						/>
 
 						{/* @ts-expect-error Async Server Component Workaround */}
 						<InformationCard
-							dataType={'project'}
+							dataType={'projects'}
 							dataId={projectId}
 						/>
 
@@ -90,7 +72,8 @@ export default async function Article({ params }: Params) {
 					</section>
 
 					<section className='lg:pl-20'>
-						<StackList project={project} />
+						{/* @ts-expect-error Async Server Component Workaround */}
+						<List listType={`stack:${projectId}`} />
 					</section>
 				</div>
 			</Container>

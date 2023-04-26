@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation'
-import getExperiencesList from '@/lib/getExperiencesList'
-import getExperienceData from '@/lib/getExperienceData'
 import Container from '@/app/components/Container'
 import HeadingContainer from '@/app/components/HeadingContainer'
 import InformationCard from '@/app/components/InformationCard'
-import ProfessionalList from '@/app/components/ProfessionalList'
+import List from '@/app/components/List'
+import getList from '@/lib/getList'
+import getData from '@/lib/getData'
 
 type Params = {
 	params: {
@@ -13,57 +13,41 @@ type Params = {
 	}
 }
 
-async function getData(experienceType: string, experienceId: string) {
-	return await getExperienceData(experienceType, experienceId)
-}
-
-async function getList() {
-	return await getExperiencesList()
-}
-
-async function experienceExists(experienceType: string, experienceId: string) {
-	const experiencesList = await getList()
-	return experiencesList.find(
-		(element) => element === `${experienceType}:${experienceId}`
-	)
-}
-
 export async function generateStaticParams() {
-	const experienceList = await getList()
+	const list = await getList('experiences')
 
-	if (Boolean(experienceList)) {
-		return experienceList.map((experience: string) => {
-			const experienceType = experience.split(':')[0]
-			const experienceId = experience.split(':')[1]
-
-			return {
-				experienceType,
-				experienceId,
-			}
-		})
+	if (list === null) {
+		return notFound()
 	}
 
-	return notFound()
+	return list.map((experience: string) => {
+		const experienceType = experience.split(':')[0]
+		const experienceId = experience.split(':')[1]
+
+		return {
+			experienceType,
+			experienceId,
+		}
+	})
 }
 
 export async function generateMetadata({ params }: Params) {
 	const { experienceType, experienceId } = params
-	const exists = await experienceExists(experienceType, experienceId)
+	const data = await getData(experienceType, experienceId)
 
-	if (!exists) {
+	if (data === null) {
 		return {
 			title: 'Experience Not Found',
 		}
 	}
 
-	const experienceData = await getData(experienceType, experienceId)
 	const professionalTitle = {
-		title: `${experienceData.company} | ${experienceData.role}`,
+		title: `${data.company} | ${data.role}`,
 	}
 	const educationTitle = {
-		title: `${experienceData.school} | ${experienceData.focus}`,
+		title: `${data.school} | ${data.focus}`,
 	}
-	const certificationTitle = { title: `${experienceData.name}` }
+	const certificationTitle = { title: `${data.name} | ${data.issuingOrg}` }
 
 	return experienceType === 'professional'
 		? professionalTitle
@@ -74,11 +58,6 @@ export async function generateMetadata({ params }: Params) {
 
 export default async function Experience({ params }: Params) {
 	const { experienceType, experienceId } = params
-	const exists = await experienceExists(experienceType, experienceId)
-
-	if (Boolean(!exists)) {
-		return notFound()
-	}
 
 	const content = (
 		<main className='mt-42 mt-36 text-zinc-800 dark:text-zinc-100'>
@@ -89,8 +68,8 @@ export default async function Experience({ params }: Params) {
 						<HeadingContainer
 							dataType={experienceType}
 							dataId={experienceId}
-							headingText={undefined}
-							paragraphText={undefined}
+							headingText={null}
+							paragraphText={null}
 						/>
 						{/* @ts-expect-error Server Component */}
 						<InformationCard
@@ -101,7 +80,7 @@ export default async function Experience({ params }: Params) {
 
 					<section className='mt-16 lg:ml-24 lg:mt-40'>
 						{/* @ts-expect-error Async Server Component Workaround */}
-						<ProfessionalList />
+						<List listType={experienceType} />
 					</section>
 				</div>
 			</Container>

@@ -1,17 +1,17 @@
 import ProfessionalCard from './ProfessionalCard'
-import getExperienceTypeList from '@/lib/getExperienceTypeList'
 import WorkIcon from '@/app/icons/WorkIcon'
+import getList from '@/lib/getList'
 
 interface Props {
 	projects: any
 }
 
-async function getList() {
-	return await getExperienceTypeList('professional')
-}
-
 export default async function ProfessionalGrid(): Promise<JSX.Element> {
-	const professionalExperiences: string[] = await getList()
+	const list = await getList('professional')
+
+	if (list === null) {
+		return <></>
+	}
 
 	const content = (
 		<div className='rounded-2xl border border-zinc-100 p-4 pt-6 shadow-md dark:border-zinc-700/40 md:p-10'>
@@ -20,7 +20,7 @@ export default async function ProfessionalGrid(): Promise<JSX.Element> {
 				<span className='ml-3'>Professional Experience</span>
 			</h2>
 			<ol className='grid grid-cols-1 gap-x-16 gap-y-20 px-2 pb-16 pt-16 md:px-6 lg:grid-cols-2'>
-				{professionalExperiences.map((experienceId: string) => (
+				{list.map((experienceId: string) => (
 					/* @ts-expect-error Server Component */
 					<ProfessionalCard
 						key={experienceId}

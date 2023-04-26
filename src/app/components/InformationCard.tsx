@@ -1,30 +1,19 @@
-import getProjectData from '@/lib/getProjectsData'
-import getExperienceData from '@/lib/getExperienceData'
-import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import LinkIcon from '../icons/LinkIcon'
 import Link from 'next/link'
 import GitHubIcon from '../icons/GitHubIcon'
-import ProfessionalList from './ProfessionalList'
+import getData from '@/lib/getData'
 
 interface Props {
 	dataType: string
 	dataId: string
 }
 
-export async function getData(dataType: string, dataId: string) {
-	if (dataType === 'project') {
-		return await getProjectData(dataId)
-	} else {
-		return await getExperienceData(dataType, dataId)
-	}
-}
-
 export default async function InformationCard({ dataType, dataId }: Props) {
 	const data = await getData(dataType, dataId)
 
-	if (Boolean(!data)) {
-		return notFound()
+	if (data === null) {
+		return <></>
 	}
 
 	const content = (
@@ -49,10 +38,20 @@ export default async function InformationCard({ dataType, dataId }: Props) {
 					</div>
 
 					{/* If the data is for a project, include the GitHub link */}
-					{dataType === 'project' ? (
+					{dataType === 'projects' ? (
 						<div className='mt-4 flex gap-x-2'>
 							<GitHubIcon />
 							<Link href={data.githubLink}>Source Code</Link>
+						</div>
+					) : (
+						''
+					)}
+
+					{/* If the data is for a certification, include the credential link */}
+					{dataType === 'certifications' ? (
+						<div className='mt-4 flex gap-x-2'>
+							<LinkIcon />
+							<Link href={data.credentialURL}>Certificate</Link>
 						</div>
 					) : (
 						''

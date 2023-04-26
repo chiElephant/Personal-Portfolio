@@ -14,8 +14,8 @@ export default function HeroImage({ image }: Props) {
 				<Image
 					src={image}
 					alt='A.M'
-					height={800}
-					width={800}
+					height={412}
+					width={412}
 					decoding='async'
 					className='darK:bg-moon aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover'
 					priority

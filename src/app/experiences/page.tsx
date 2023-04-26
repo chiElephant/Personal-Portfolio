@@ -2,9 +2,8 @@ import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
 import DownloadResumeBtn from '@/components/DownloadResumeBtn'
 import { Metadata } from 'next'
-import EducationList from '@/components/EducationList'
-import CertificationsList from '@/components/CertificationsList'
 import ProfessionalGrid from '@/components/ProfessionalGrid'
+import List from '../components/List'
 
 export const metadata: Metadata = {
 	title: 'Experience',
@@ -20,8 +19,8 @@ export default function Experience(): JSX.Element {
 						<HeadingContainer
 							headingText={`Engineering and beyond. Experience, education and certifications.`}
 							paragraphText={`My professional experience in hospitality management, business development and software engineering, my education, and knowledge I've gained along the way.`}
-							dataType={undefined}
-							dataId={undefined}
+							dataType={null}
+							dataId={null}
 						/>
 						<div className='flex max-w-2xl items-center'>
 							<div className='pl-0'>
@@ -34,9 +33,9 @@ export default function Experience(): JSX.Element {
 						{/* @ts-expect-error Async Server Component Workaround */}
 						<ProfessionalGrid />
 						{/* @ts-expect-error Async Server Component Workaround */}
-						<EducationList />
+						<List listType={'education'} />
 						{/* @ts-expect-error Async Server Component Workaround */}
-						<CertificationsList />
+						<List listType={'certifications'} />
 						<DownloadResumeBtn />
 					</section>
 				</Container>

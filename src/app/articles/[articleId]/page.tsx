@@ -1,11 +1,11 @@
-import getArticlesList from '@/lib/getArticlesList'
-import getArticleData from '@/lib/getArticleData'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
 import rehypeHighlight from 'rehype-highlight/lib'
 import Link from 'next/link'
 import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
+import getList from '@/lib/getList'
+import getData from '@/lib/getData'
 
 type Params = {
 	params: {
@@ -13,59 +13,44 @@ type Params = {
 	}
 }
 
-async function getList(listLength: number) {
-	return await getArticlesList(listLength)
-}
-
-async function getData(articleId: string) {
-	return await getArticleData(articleId)
-}
-
-async function articleExists(articleId: string) {
-	const articlesList = await getList(-1)
-	return articlesList.find((article) => article === `${articleId}`)
-}
-
 export async function generateStaticParams() {
-	const articlesList = await getList(-1)
+	const list = await getList('articles')
 
-	if (articlesList) {
-		return articlesList.map((articleId: string) => ({
-			articleId,
-		}))
+	if (list === null) {
+		return notFound()
 	}
 
-	return notFound()
+	return list.map((articleId: string) => ({
+		articleId,
+	}))
 }
 
 export async function generateMetadata({ params }: Params) {
 	const { articleId } = params
-	const articleData = await getData(articleId)
+	const data = await getData('articles', articleId)
 
-	if (!articleData) {
+	if (data === null) {
 		return {
 			title: 'Article Not Found',
 		}
 	}
 	return {
-		title: articleData.title,
+		title: data.title,
 	}
 }
 
 export default async function Article({ params }: Params) {
 	const { articleId } = params
-	const exists = await articleExists(articleId)
-
-	if (!exists) {
-		return notFound()
-	}
-
-	const articleData = await getData(articleId)
+	const data = await getData('articles', articleId)
 
 	const mdxOptions = {
 		mdxOptions: {
 			rehypePlugins: [rehypeHighlight],
 		},
+	}
+
+	if (data === null) {
+		return notFound()
 	}
 
 	const content = (
@@ -74,16 +59,16 @@ export default async function Article({ params }: Params) {
 				<header className='mb-10 max-w-2xl'>
 					{/* @ts-expect-error Async Server Component Workaround */}
 					<HeadingContainer
-						headingText={articleData.title}
-						paragraphText={articleData.date}
-						dataType={undefined}
-						dataId={undefined}
+						headingText={null}
+						paragraphText={null}
+						dataType={'articles'}
+						dataId={articleId}
 					/>
 				</header>
 				<article className=' article prose prose-xl dark:prose-invert'>
 					{/* @ts-expect-error Async Server Component Workaround */}
 					<MDXRemote
-						source={articleData.content}
+						source={data.content}
 						options={mdxOptions}
 					/>
 					<p>

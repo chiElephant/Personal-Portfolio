@@ -1,20 +1,22 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import LinkIcon from '@/app/icons/LinkIcon'
-import getProjectData from '@/lib/getProjectsData'
 import StackGrid from '@/app/components/StackGrid'
-import SeeMoreIcon from '../icons/SeeMoreIcon'
+import getData from '@/lib/getData'
 
 interface Props {
-	projectName: string
+	projectId: string
 }
 
 export default async function ProjectCard({
-	projectName,
+	projectId,
 }: Props): Promise<JSX.Element> {
-	const { name, image, link, summary, stack, linkText } = await getProjectData(
-		projectName
-	)
+	const data = await getData('projects', projectId)
+
+	if (data === null) {
+		return <></>
+	}
+
+	const { name, image, internalLink, summary, stack } = data
 
 	return (
 		<li className='group relative mt-12 flex flex-col items-start rounded-2xl p-3'>
@@ -32,14 +34,9 @@ export default async function ProjectCard({
 				</div>
 				<h2 className='ml-4 mt-2 text-base font-semibold text-zinc-800 dark:text-zinc-100'>
 					<div className='absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-100 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl'></div>
-					<Link href={link}>
+					<Link href={internalLink}>
 						<span className='absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl'></span>
-						<span className='relative z-10 flex'>
-							{name}
-							<div className='mt-1'>
-								<SeeMoreIcon />
-							</div>
-						</span>
+						<span className='relative z-10'>{name}</span>
 					</Link>
 				</h2>
 			</div>

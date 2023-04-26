@@ -1,15 +1,18 @@
 import { NextResponse } from 'next/server'
-import getArticlesList from '@/lib/getArticlesList'
-import { notFound } from 'next/navigation'
+import getList from '@/lib/getList'
 
 export async function GET(request: Request) {
 	const { searchParams } = new URL(request.url)
 	const length = searchParams.get('length')
 
-	if (length) {
-		const articles = await getArticlesList(parseInt(length))
-		return NextResponse.json({ articles })
+	if (!length) {
+		return NextResponse.error()
 	}
 
-	return notFound()
+	try {
+		const articles = await getList('articles', parseInt(length))
+		return NextResponse.json(articles)
+	} catch (error) {
+		return NextResponse.error()
+	}
 }

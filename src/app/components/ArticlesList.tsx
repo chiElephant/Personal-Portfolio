@@ -1,14 +1,18 @@
 import ArticleItem from '@/components/ArticleItem'
+import getList from '@/lib/getList'
 
 interface Props {
 	page: string
-	articlesList: any
+	length: any
 }
 
-export default function ArticlesList({
-	articlesList,
-	page,
-}: Props): JSX.Element {
+export default async function ArticlesList({ length, page }: Props) {
+	const articlesList = await getList('articles', length)
+
+	if (articlesList === null) {
+		return <></>
+	}
+
 	const content = (
 		<div className='flex flex-col gap-16'>
 			{articlesList.map((articleId: string) => (

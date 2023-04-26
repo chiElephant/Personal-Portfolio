@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default function About(): JSX.Element {
-	return (
+	const content = (
 		<main className='md:mt-42 mt-36'>
 			<Container>
 				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
@@ -21,8 +21,8 @@ export default function About(): JSX.Element {
 						<Heading
 							headingText={`Hey there! My name is Anthony, and it's a pleasure to meet you.`}
 							paragraphText={`I live in Boulder, CO. I like to write code and play in the mountains. Let me tell you a bit about my journey so far.`}
-							dataType={undefined}
-							dataId={undefined}
+							dataType={null}
+							dataId={null}
 						/>
 
 						<ParagraphContainer
@@ -56,4 +56,6 @@ export default function About(): JSX.Element {
 			</Container>
 		</main>
 	)
+
+	return content
 }

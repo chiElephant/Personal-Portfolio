@@ -15,8 +15,8 @@ export default function Projects(): JSX.Element {
 				<HeadingContainer
 					headingText={`Things I've made to display my skills and proficiencies.`}
 					paragraphText={`Here are some of the recent things I've made that I'm proud of. Most of my projects are public on GitHub, so if you see something that piques your interest, checkout out the code and feel free to get in touch with any questions or ideas for how it can be improved.`}
-					dataType={undefined}
-					dataId={undefined}
+					dataType={null}
+					dataId={null}
 				/>
 				{/* @ts-expect-error Server Component */}
 				<ProjectGrid />
