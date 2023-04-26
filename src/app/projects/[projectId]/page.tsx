@@ -52,7 +52,6 @@ export default async function Article({ params }: Params) {
 			<Container>
 				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
 					<HeroImage image={project.image} />
-
 					<section className='lg:order-first lg:row-span-2'>
 						{/* @ts-expect-error Async Server Component Workaround */}
 						<HeadingContainer

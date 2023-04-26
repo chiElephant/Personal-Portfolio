@@ -16,14 +16,14 @@ export default async function ProjectCard({
 		return <></>
 	}
 
-	const { name, image, internalLink, summary, stack } = data
+	const { name, image, icon, internalLink, summary, stack } = data
 
 	return (
 		<li className='group relative mt-12 flex flex-col items-start rounded-2xl p-3'>
 			<div className='flex'>
 				<div className='relative z-10 flex h-16 w-16 items-center justify-center rounded-lg bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0'>
 					<Image
-						src={image}
+						src={icon}
 						alt={name}
 						width={52}
 						height={52}
