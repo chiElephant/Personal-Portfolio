@@ -3,16 +3,18 @@ import DownloadIcon from '../icons/DownloadIcon'
 
 export default function DownloadResumeBtn() {
 	return (
-		<Link
-			href='/Anthony Merino Resume.pdf'
-			locale={false}
-			target='_blank'
-			rel='noopener noreferrer'
-			download
-			className='group mt-12 inline-flex w-full items-center justify-center gap-2 rounded-md bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-900 outline-offset-2 transition hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 active:transition-none dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70'
-		>
-			Download Resume
-			<DownloadIcon />
-		</Link>
+		<div className='my-10 flex justify-center'>
+			<Link
+				href='/Anthony Merino Resume.pdf'
+				locale={false}
+				target='_blank'
+				rel='noopener noreferrer'
+				download
+				className='ml-4 inline-flex flex-none items-center justify-center gap-2 rounded-md bg-p8 px-3 py-2 text-sm font-semibold text-p1 outline-offset-2 transition hover:bg-p7 active:bg-p8 active:text-s4 active:transition-none dark:bg-p7 dark:hover:bg-p6 dark:active:bg-p7 active:dark:text-s3'
+			>
+				Download Resume
+				<DownloadIcon />
+			</Link>
+		</div>
 	)
 }

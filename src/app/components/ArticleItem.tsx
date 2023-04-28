@@ -26,8 +26,8 @@ export default async function ArticleItem({ articleId, page }: Props) {
 				}
 			>
 				<div className='group relative flex flex-col items-start duration-200 group-hover:scale-105 md:col-span-3'>
-					<h2 className='text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100'>
-						<div className='transition-duration-100 absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-100 opacity-0 group-hover:scale-100 group-hover:opacity-100  dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl'></div>
+					<h2 className='text-base font-semibold tracking-tight text-s7 dark:text-s3'>
+						<div className='transition-duration-100 absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-p1 opacity-0 group-hover:scale-100 group-hover:opacity-100  dark:bg-p8/50 sm:-inset-x-6 sm:rounded-2xl'></div>
 						<Link href={link}>
 							<span className='absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl'></span>
 							<span className='relative z-10'>{title}</span>
@@ -36,8 +36,8 @@ export default async function ArticleItem({ articleId, page }: Props) {
 					<time
 						className={
 							page === 'articles'
-								? 'relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500 md:hidden'
-								: 'relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500'
+								? 'relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-p5 dark:text-p4 md:hidden'
+								: 'relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-p5 dark:text-p4'
 						}
 						dateTime='2023-04-01'
 					>
@@ -45,24 +45,24 @@ export default async function ArticleItem({ articleId, page }: Props) {
 							className='absolute inset-y-0 left-0 flex items-center'
 							aria-hidden='true'
 						>
-							<span className='h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500'></span>
+							<span className='h-4 w-0.5 rounded-full bg-p4'></span>
 						</span>
 						{date}
 					</time>
-					<p className='relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400'>
+					<p className='relative z-10 mt-2 text-sm text-p7 dark:text-p3'>
 						{excerpt}
 					</p>
-					<div
+					{/* <div
 						aria-hidden='true'
-						className='relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500'
+						className='relative z-10 mt-4 flex items-center text-sm font-medium text-f4 dark:text-f1'
 					>
 						Read Article
 						<SeeMoreIcon />
-					</div>
+					</div> */}
 				</div>
 				{page === 'articles' ? (
 					<time
-						className='relative z-10 order-first mb-3 mt-1 hidden text-sm text-zinc-400 dark:text-zinc-500 md:block'
+						className='relative z-10 order-first mb-3 mt-1 hidden text-sm text-p5 dark:text-p4 md:block'
 						dateTime='2023-04-01'
 					>
 						{date}

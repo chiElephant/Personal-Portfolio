@@ -18,14 +18,14 @@ export default async function ListItem({ dataType, dataId }: Props) {
 		<li className='group'>
 			<Link href={data.internalLink || data.stackLink}>
 				<div className='flex w-full gap-4 rounded-md p-2 duration-200 group-hover:scale-105 group-hover:shadow-md'>
-					<div className='group-hover:box-shadow-md flex flex-row rounded-lg p-2 duration-200 group-hover:scale-105 group-hover:bg-zinc-200 '>
+					<div className='group-hover:box-shadow-md flex flex-row rounded-lg p-2 duration-200 group-hover:scale-105 group-hover:bg-p2'>
 						<Image
 							src={data.icon}
 							alt={data.name || data.school || data.company}
 							width={40}
 							height={40}
 							decoding='async'
-							className='rounded-lg shadow-lg shadow-zinc-400 dark:shadow-zinc-950'
+							className='rounded-lg shadow-lg shadow-p4 dark:shadow-p10'
 							loading='lazy'
 						/>
 					</div>
@@ -33,7 +33,7 @@ export default async function ListItem({ dataType, dataId }: Props) {
 					<dl className='flex flex-auto flex-wrap place-content-center'>
 						{/* <div className="flex flex-col items-center"> */}
 						<dt className='sr-only'>{'Name'}</dt>
-						<dd className='w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100'>
+						<dd className='w-full flex-none text-sm font-medium text-s7 dark:text-s3'>
 							{data.company || data.name || data.school}
 						</dd>
 
@@ -41,7 +41,7 @@ export default async function ListItem({ dataType, dataId }: Props) {
 						{dataType !== 'stack' ? (
 							<>
 								<dt className='sr-only'>{'Focus'}</dt>
-								<dd className='text-xs text-zinc-500 dark:text-zinc-400'>
+								<dd className='text-xs text-p5 dark:text-p3'>
 									{data.role || data.issuingOrg || data.focus}
 								</dd>
 								<dt className='sr-only'>{'Date'}</dt>
@@ -53,7 +53,7 @@ export default async function ListItem({ dataType, dataId }: Props) {
 
 						{dataType === 'certifications' ? (
 							<dd
-								className='ml-auto text-xs text-zinc-400 dark:text-zinc-500'
+								className='ml-auto text-xs text-p5 dark:text-p3'
 								aria-label={`${data.issueDate}`}
 							>
 								<time dateTime={data.issueDate}>{data.issueDate}</time>
@@ -64,7 +64,7 @@ export default async function ListItem({ dataType, dataId }: Props) {
 
 						{dataType === 'professional' || dataType === 'education' ? (
 							<dd
-								className='ml-auto text-xs text-zinc-400 dark:text-zinc-500'
+								className='ml-auto text-xs text-p5 dark:text-p3'
 								aria-label={`${data.dateStart} to ${data.dateEnd}`}
 							>
 								<time dateTime={data.dateStart}>{data.dateStart}</time>

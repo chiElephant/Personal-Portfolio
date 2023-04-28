@@ -14,12 +14,12 @@ export default async function ProfessionalGrid(): Promise<JSX.Element> {
 	}
 
 	const content = (
-		<div className='rounded-2xl border border-zinc-100 p-4 pt-6 shadow-md dark:border-zinc-700/40 md:p-10'>
-			<h2 className='flex text-sm font-semibold text-zinc-900 dark:text-zinc-100'>
+		<div className='rounded-2xl border border-p1 p-6 shadow-md dark:border-p7/40 md:p-8'>
+			<h2 className='flex text-sm font-semibold text-p9 dark:text-p1'>
 				<WorkIcon />
 				<span className='ml-3'>Professional Experience</span>
 			</h2>
-			<ol className='grid grid-cols-1 gap-x-16 gap-y-20 px-2 pb-16 pt-16 md:px-6 lg:grid-cols-2'>
+			<ol className='grid grid-cols-1 gap-x-16 gap-y-16 px-2 pb-16 pt-16 lg:grid-cols-2'>
 				{list.map((experienceId: string) => (
 					/* @ts-expect-error Server Component */
 					<ProfessionalCard

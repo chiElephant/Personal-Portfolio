@@ -42,7 +42,7 @@ export default function Header() {
 			className='pointer-events-none fixed top-0 z-50 flex w-full transform flex-col'
 			data-testid='header'
 		>
-			<div className='top-0 z-10 mb-16 h-16 pt-6'>
+			<div className='top-0 z-10 flex h-16 items-center bg-p0/90 py-4 dark:bg-p9/90'>
 				<div className='w-full sm:px-8'>
 					<div className='mx-auto max-w-7xl lg:px-8'>
 						<div className='relative px-4 sm:px-8 lg:px-12'>

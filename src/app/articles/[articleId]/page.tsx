@@ -54,7 +54,7 @@ export default async function Article({ params }: Params) {
 	}
 
 	const content = (
-		<main className=' mx-auto mt-20 max-w-xl px-6 md:mt-14 md:max-w-7xl'>
+		<main className=' md:mt-42 mx-auto mt-36 max-w-xl px-6 md:max-w-7xl'>
 			<Container>
 				<header className='mb-10 max-w-2xl'>
 					{/* @ts-expect-error Async Server Component Workaround */}

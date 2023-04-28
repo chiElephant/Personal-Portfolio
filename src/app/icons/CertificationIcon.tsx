@@ -1,7 +1,7 @@
 export default function CertificationIcon() {
 	return (
 		<svg
-			className='h-6 w-6 fill-zinc-400 dark:fill-zinc-500'
+			className='h-6 w-6 fill-p4 dark:fill-p5'
 			viewBox='0 0 32 32'
 			xmlns='http://www.w3.org/2000/svg'
 		>

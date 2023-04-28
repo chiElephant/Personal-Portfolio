@@ -10,14 +10,14 @@ export default function HeroImage({ image }: Props) {
 			className='max-w-xs px-2.5 lg:max-w-none lg:pl-20'
 			data-testid='about-content'
 		>
-			<div className='flex w-fit rotate-3 rounded-2xl shadow-lg shadow-zinc-700 drop-shadow '>
+			<div className='flex w-fit rotate-3 rounded-2xl shadow-lg shadow-p5 drop-shadow dark:shadow-p10 '>
 				<Image
 					src={image}
 					alt='A.M'
-					height={412}
-					width={412}
+					height={433}
+					width={433}
 					decoding='async'
-					className='aspect-square rounded-2xl bg-zinc-100 dark:bg-moon'
+					className='aspect-square rounded-2xl bg-p1 dark:bg-p7'
 					priority
 				/>
 			</div>

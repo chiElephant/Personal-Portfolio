@@ -18,9 +18,7 @@ export default function StackGrid({ stack }: Props) {
 						src={`/stack/${stackItem.toLowerCase()}.webp`}
 						width={48}
 						height={48}
-						className={
-							'rounded-lg shadow-lg shadow-zinc-400 dark:shadow-zinc-950'
-						}
+						className={'rounded-lg shadow-lg shadow-p5 dark:shadow-p10'}
 					/>
 				))}
 			</ul>

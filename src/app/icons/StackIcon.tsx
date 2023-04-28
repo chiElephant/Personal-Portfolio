@@ -4,7 +4,7 @@ export default function StackIcon() {
 			xmlns='http://www.w3.org/2000/svg'
 			height='20px'
 			width='20px'
-			className='fill-zinc-400 dark:fill-zinc-500'
+			className='fill-p4 dark:fill-p5'
 			viewBox='0 0 24 24'
 		>
 			<path

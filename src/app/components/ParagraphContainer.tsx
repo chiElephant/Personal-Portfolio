@@ -3,7 +3,7 @@ interface Props {
 }
 export default function ParagraphContainer({ text }: Props): JSX.Element {
 	return (
-		<div className='mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400'>
+		<div className='mt-6 space-y-7 text-base text-p7 dark:text-p1'>
 			{text.map((paragraph: string, i: number) => (
 				<p
 					key={i}

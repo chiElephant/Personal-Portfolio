@@ -5,7 +5,7 @@ export default function TwitterIcon() {
 		<svg
 			viewBox='0 0 24 24'
 			aria-hidden='true'
-			className='h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500'
+			className='h-6 w-6 flex-none fill-p5 transition group-hover:fill-s5 group-hover:dark:fill-s3'
 		>
 			<path
 				key='t'

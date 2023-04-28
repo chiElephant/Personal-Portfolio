@@ -3,7 +3,7 @@ export default function DownArrowIcon() {
 		<svg
 			viewBox='0 0 8 6'
 			aria-hidden='true'
-			className='ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:stroke-teal-200 dark:group-hover:stroke-zinc-400'
+			className='ml-3 h-auto w-2 stroke-p5 group-hover:stroke-p7 dark:stroke-s2 dark:group-hover:stroke-p4'
 		>
 			<path
 				d='M1.75 1.75 4 4.25l2.25-2.5'
