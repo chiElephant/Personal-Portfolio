@@ -3,6 +3,7 @@ import LinkIcon from '../icons/LinkIcon'
 import Link from 'next/link'
 import GitHubIcon from '../icons/GitHubIcon'
 import getData from '@/lib/getData'
+import getPoints from '@/lib/getPoints'
 
 interface Props {
 	dataType: string
@@ -11,8 +12,9 @@ interface Props {
 
 export default async function InformationCard({ dataType, dataId }: Props) {
 	const data = await getData(dataType, dataId)
+	const points = await getPoints(dataId)
 
-	if (data === null) {
+	if (data === null || points === null) {
 		return <></>
 	}
 
@@ -61,31 +63,14 @@ export default async function InformationCard({ dataType, dataId }: Props) {
 
 			<section className='mt-20'>
 				<ul className='ml-4 list-disc'>
-					<li className='mt-10'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Consequuntur ex debitis reiciendis fuga temporibus dolores
-						recusandae, nihil itaque rerum officia.
-					</li>
-					<li className='mt-10'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Consequuntur ex debitis reiciendis fuga temporibus dolores
-						recusandae, nihil itaque rerum officia.
-					</li>
-					<li className='mt-10'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Consequuntur ex debitis reiciendis fuga temporibus dolores
-						recusandae, nihil itaque rerum officia.
-					</li>
-					<li className='mt-10'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Consequuntur ex debitis reiciendis fuga temporibus dolores
-						recusandae, nihil itaque rerum officia.
-					</li>
-					<li className='mt-10'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Consequuntur ex debitis reiciendis fuga temporibus dolores
-						recusandae, nihil itaque rerum officia.
-					</li>
+					{points.map((point) => (
+						<li
+							key={point}
+							className='mt-10'
+						>
+							{point}
+						</li>
+					))}
 				</ul>
 			</section>
 		</div>

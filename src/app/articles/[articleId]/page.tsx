@@ -6,6 +6,7 @@ import Container from '@/components/Container'
 import HeadingContainer from '@/components/HeadingContainer'
 import getList from '@/lib/getList'
 import getData from '@/lib/getData'
+import HeroImage from '@/app/components/HeroImage'
 
 type Params = {
 	params: {
@@ -56,15 +57,18 @@ export default async function Article({ params }: Params) {
 	const content = (
 		<main className=' md:mt-42 mx-auto mt-36 max-w-xl px-6 md:max-w-7xl'>
 			<Container>
-				<header className='mb-10 max-w-2xl'>
-					{/* @ts-expect-error Async Server Component Workaround */}
-					<HeadingContainer
-						headingText={null}
-						paragraphText={null}
-						dataType={'articles'}
-						dataId={articleId}
-					/>
-				</header>
+				<div className='grid grid-cols-1 gap-x-16 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
+					<HeroImage image={data.image} />
+					<section className='flex items-center lg:row-span-2'>
+						{/* @ts-expect-error Async Server Component Workaround */}
+						<HeadingContainer
+							headingText={null}
+							paragraphText={null}
+							dataType={'articles'}
+							dataId={articleId}
+						/>
+					</section>
+				</div>
 				<article className=' article prose prose-xl dark:prose-invert'>
 					{/* @ts-expect-error Async Server Component Workaround */}
 					<MDXRemote

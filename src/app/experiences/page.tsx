@@ -6,6 +6,7 @@ import ProfessionalGrid from '@/components/ProfessionalGrid'
 import List from '../components/List'
 import SocilaLList from '../components/SocialList'
 import HeroImage from '../components/HeroImage'
+import SubImage from '../components/SubImage'
 
 export const metadata: Metadata = {
 	title: 'Experience',
@@ -16,8 +17,8 @@ export default function Experience(): JSX.Element {
 		<>
 			<main className='md:mt-42 mt-36'>
 				<Container>
-					<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
-						<HeroImage image={'/experiences.webp'} />
+					<div className='grid grid-cols-1 gap-x-16 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-16'>
+						<HeroImage image={'/experiences2.png'} />
 
 						<section className='flex flex-col justify-center lg:row-span-2'>
 							{/* @ts-expect-error Async Server Component Workaround */}
@@ -42,11 +43,21 @@ export default function Experience(): JSX.Element {
 						{/* @ts-expect-error Async Server Component Workaround */}
 						<ProfessionalGrid />
 						<DownloadResumeBtn />
-						<div className='grid grid-cols-1 gap-x-16 lg:grid-cols-2'>
+
+						<div className='mt-24 grid grid-cols-1 items-center justify-center gap-x-16 gap-y-16 md:grid-cols-2'>
+							<div className='flex justify-center'>
+								<SubImage image={'/education2.png'} />
+							</div>
+
 							{/* @ts-expect-error Async Server Component Workaround */}
 							<List listType={'education'} />
+						</div>
 
-							<div className='flex flex-col'>
+						<div className='mt-24 grid grid-cols-1 items-center justify-center gap-x-16 gap-y-16 md:grid-cols-2'>
+							<div className='flex justify-center'>
+								<SubImage image={'/certifications2.png'} />
+							</div>
+							<div className='md:order-first'>
 								{/* @ts-expect-error Async Server Component Workaround */}
 								<List listType={'certifications'} />
 							</div>

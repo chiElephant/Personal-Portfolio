@@ -14,7 +14,7 @@ export default function Projects(): JSX.Element {
 		<main className='md:mt-42 mt-36'>
 			<Container>
 				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
-					<HeroImage image={'/projects.webp'} />
+					<HeroImage image={'/projects2.png'} />
 
 					<section className='flex flex-col justify-center lg:order-first lg:row-span-2'>
 						{/* @ts-expect-error Server Component */}

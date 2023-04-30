@@ -14,7 +14,7 @@ export default function About(): JSX.Element {
 		<main className='md:mt-42 mt-36'>
 			<Container>
 				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
-					<HeroImage image={'/ai-profile-desk.webp'} />
+					<HeroImage image={'/ai-profile-desk.png'} />
 
 					<section className='lg:order-first lg:row-span-2'>
 						{/* @ts-expect-error Async Server Component Workaround */}

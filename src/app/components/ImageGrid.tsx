@@ -2,11 +2,11 @@ import Image from 'next/image'
 
 export default function ImageGrid() {
 	const images = [
-		'/chicago-day.webp',
-		'/boulder-night.webp',
-		'/ai-profile-outside.webp',
-		'/chicago-night.webp',
-		'/boulder-day.webp',
+		'/boulder-day.png',
+		'/boulder-night.png',
+		'/ai-profile-outside.png',
+		'/chicago-night.png',
+		'/chicago-day.png',
 	]
 
 	return (

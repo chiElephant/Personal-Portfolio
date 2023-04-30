@@ -18,9 +18,8 @@ export default async function Articles(): Promise<JSX.Element> {
 					className='grid grid-cols-1 gap-y-16 lg:grid-cols-2
 				lg:grid-rows-[auto_1fr] lg:gap-y-12'
 				>
-					<HeroImage image={'/articles.webp'} />
+					<HeroImage image={'/blog2.png'} />
 					<section className='flex items-center lg:row-span-2'>
-						{/* <header className='max-w-2xl'> */}
 						{/* @ts-expect-error Async Server Component Workaround */}
 						<HeadingContainer
 							headingText={
@@ -30,7 +29,6 @@ export default async function Articles(): Promise<JSX.Element> {
 							dataType={null}
 							dataId={null}
 						/>
-						{/* </header> */}
 					</section>
 				</div>
 			</Container>

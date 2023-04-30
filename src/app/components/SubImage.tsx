@@ -4,7 +4,7 @@ interface Props {
 	image: string
 }
 
-export default function HeroImage({ image }: Props) {
+export default function SubImage({ image }: Props) {
 	return (
 		<div
 			className='max-w-xs px-2.5 lg:max-w-none lg:pl-20'
@@ -14,11 +14,11 @@ export default function HeroImage({ image }: Props) {
 			<Image
 				src={image}
 				alt='A.M'
-				height={400}
-				width={360}
+				height={285}
+				width={240}
 				quality={100}
 				decoding='async'
-				className='rotate-3 rounded-2xl drop-shadow-xl'
+				className='aspect-sqaure rotate-3 rounded-2xl drop-shadow-xl'
 				priority
 			/>
 			{/* </div> */}
