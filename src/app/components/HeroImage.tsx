@@ -7,7 +7,7 @@ interface Props {
 export default function HeroImage({ image }: Props) {
 	return (
 		<div
-			className='max-w-xs px-2.5 lg:max-w-none lg:pl-20'
+			className='flex justify-center'
 			data-testid='about-content'
 		>
 			{/* <div className='flex w-fit rotate-3 rounded-2xl shadow-lg shadow-p5 drop-shadow dark:shadow-p10 '> */}
@@ -18,7 +18,7 @@ export default function HeroImage({ image }: Props) {
 				width={360}
 				quality={100}
 				decoding='async'
-				className='rotate-3 rounded-2xl drop-shadow-xl'
+				className='rotate-3 rounded-2xl drop-shadow-2xl'
 				priority
 			/>
 			{/* </div> */}

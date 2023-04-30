@@ -32,7 +32,6 @@ export default async function Articles(): Promise<JSX.Element> {
 					</section>
 				</div>
 			</Container>
-
 			<Container>
 				<section className='mx-auto mt-32 grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2'>
 					<div className='mb-32 flex max-w-3xl flex-col space-y-16 md:border-l md:border-p1 md:pl-6 md:dark:border-p7/40'>
