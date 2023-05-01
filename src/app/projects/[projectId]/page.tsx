@@ -41,17 +41,23 @@ export async function generateMetadata({ params }: Params) {
 
 export default async function Article({ params }: Params) {
 	const { projectId } = params
-	const project = await getData('projects', projectId)
+	// const project = await getData('projects', projectId)
 
-	if (project === null) {
+	if (!projectId) {
 		return notFound()
 	}
 
 	const content = (
-		<main className='mt-42 mt-36 text-p7 dark:text-p1'>
+		<main className='mt-12 text-p7 dark:text-p1 md:mt-36'>
 			<Container>
 				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
-					<HeroImage image={project.image} />
+					{/* @ts-expect-error Async Server Component Workaround */}
+					<HeroImage
+						dataType={'projects'}
+						dataId={projectId}
+						style={`rotate-3 rounded-2xl drop-shadow-2xl`}
+						image={null}
+					/>
 					<section className='lg:order-first lg:row-span-2'>
 						{/* @ts-expect-error Async Server Component Workaround */}
 						<HeadingContainer
@@ -67,7 +73,7 @@ export default async function Article({ params }: Params) {
 							dataId={projectId}
 						/>
 
-						<ProjectVideo project={project} />
+						{/* <ProjectVideo project={project} /> */}
 					</section>
 
 					<section className='lg:pl-20'>

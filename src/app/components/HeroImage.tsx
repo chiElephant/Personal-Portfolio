@@ -1,11 +1,32 @@
+import getData from '@/lib/getData'
 import Image from 'next/image'
 
 interface Props {
-	image: string
+	dataType: string | null
+	dataId: string | null
+	style: string
+	image: string | null
 }
 
-export default function HeroImage({ image }: Props) {
-	return (
+export default async function HeroImage({
+	dataType,
+	dataId,
+	style,
+	image = null,
+}: Props) {
+	if (dataType !== null && dataId !== null) {
+		const data = await getData(dataType, dataId)
+
+		if (data !== null) {
+			image = data.image
+		}
+	}
+
+	if (image === null) {
+		return <></>
+	}
+
+	const content = (
 		<div
 			className='flex justify-center'
 			data-testid='about-content'
@@ -18,10 +39,13 @@ export default function HeroImage({ image }: Props) {
 				width={360}
 				quality={100}
 				decoding='async'
-				className='rotate-3 rounded-2xl drop-shadow-2xl'
+				className={style}
+				// 'rotate-3 rounded-2xl drop-shadow-2xl'
 				priority
 			/>
 			{/* </div> */}
 		</div>
 	)
+
+	return content
 }

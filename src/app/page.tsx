@@ -8,7 +8,7 @@ import SocilaLList from './components/SocialList'
 
 export default async function Home(): Promise<JSX.Element> {
 	const content = (
-		<main className='md:mt-42 mt-36'>
+		<main className='md:mt-42 mt-32'>
 			<Container>
 				<section>
 					{/* @ts-expect-error Async Server Component Workaround */}

@@ -14,7 +14,7 @@ export default async function ProfessionalCard({ experienceId }: Props) {
 		return <></>
 	}
 
-	const { image, company, internalLink, role, dateStart, dateEnd } = data
+	const { icon, company, internalLink, role, dateStart, dateEnd } = data
 
 	return (
 		<div className='group'>
@@ -22,7 +22,7 @@ export default async function ProfessionalCard({ experienceId }: Props) {
 				<div className='flex justify-between'>
 					<div className='relative z-10 flex h-16 w-16 items-center justify-center rounded-lg bg-p0 shadow-md shadow-p8/5 ring-1 ring-p9/5 dark:border dark:border-p7/50 dark:bg-p8 dark:ring-0'>
 						<Image
-							src={image}
+							src={icon}
 							alt={company}
 							width={52}
 							height={52}

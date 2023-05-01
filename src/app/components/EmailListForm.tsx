@@ -17,7 +17,7 @@ export default function EmailListForm() {
 	return (
 		<form
 			action='/thank-you'
-			className='rounded-2xl border border-p2 p-6 shadow-wellShadow dark:border-p10'
+			className='rounded-2xl border border-p2 p-6 shadow-wellShadow dark:border-p10 '
 		>
 			<h2 className='flex text-sm font-semibold text-p8 dark:text-p1'>
 				<EmailListIcon />

@@ -14,7 +14,7 @@ export default async function ProfessionalGrid(): Promise<JSX.Element> {
 	}
 
 	const content = (
-		<div className='rounded-2xl border border-p1 p-6 shadow-md dark:border-p7/40 md:p-8'>
+		<div className='rounded-2xl border border-p1 p-6 shadow-md shadow-p3 dark:border-p7/40 dark:shadow-p10 md:p-8'>
 			<h2 className='flex text-sm font-semibold text-p9 dark:text-p1'>
 				<WorkIcon />
 				<span className='ml-3'>Professional Experience</span>

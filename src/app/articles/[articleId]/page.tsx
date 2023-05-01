@@ -55,12 +55,18 @@ export default async function Article({ params }: Params) {
 	}
 
 	const content = (
-		<main className=' md:mt-42 mt-36'>
+		<main className='mt-12 md:mt-28'>
 			<Container>
 				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
-					<HeroImage image={data.image} />
+					{/* @ts-expect-error Async Server Component Workaround */}
+					<HeroImage
+						dataType={'articles'}
+						dataId={articleId}
+						style={`-rotate-3 rounded-2xl drop-shadow-2xl`}
+						image={null}
+					/>
 
-					<section className='flex items-center lg:row-span-2'>
+					<section className='flex items-center lg:order-first lg:row-span-2'>
 						{/* @ts-expect-error Async Server Component Workaround */}
 						<HeadingContainer
 							headingText={null}

@@ -11,10 +11,16 @@ export const metadata: Metadata = {
 
 export default function About(): JSX.Element {
 	const content = (
-		<main className='md:mt-42 mt-36'>
+		<main className='md:mt-42 mt-32'>
 			<Container>
 				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
-					<HeroImage image={'/ai-profile-desk.png'} />
+					{/* @ts-expect-error Async Server Component Workaround */}
+					<HeroImage
+						dataType={null}
+						dataId={null}
+						style={`rotate-3 rounded-2xl shadow-xl shadow-p10 ring-1 ring-p10`}
+						image={'/ai-profile-desk.png'}
+					/>
 
 					<section className='lg:order-first lg:row-span-2'>
 						{/* @ts-expect-error Async Server Component Workaround */}

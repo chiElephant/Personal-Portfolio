@@ -5,6 +5,7 @@ import InformationCard from '@/app/components/InformationCard'
 import List from '@/app/components/List'
 import getList from '@/lib/getList'
 import getData from '@/lib/getData'
+import HeroImage from '@/app/components/HeroImage'
 
 type Params = {
 	params: {
@@ -60,9 +61,16 @@ export default async function Experience({ params }: Params) {
 	const { experienceType, experienceId } = params
 
 	const content = (
-		<main className='mt-42 mt-36 text-p7 dark:text-p1'>
+		<main className='mt-12 text-p7 dark:text-p1 md:mt-36'>
 			<Container>
 				<div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12'>
+					{/* @ts-expect-error Server Component */}
+					<HeroImage
+						dataType={experienceType}
+						dataId={experienceId}
+						style={`rotate-3 rounded-2xl drop-shadow-2xl`}
+						image={null}
+					/>
 					<section className='lg:order-first lg:row-span-2'>
 						{/* @ts-expect-error Server Component */}
 						<HeadingContainer
@@ -78,7 +86,7 @@ export default async function Experience({ params }: Params) {
 						/>
 					</section>
 
-					<section className='mt-16 lg:ml-24 lg:mt-40'>
+					<section className='lg:ml-24'>
 						{/* @ts-expect-error Async Server Component Workaround */}
 						<List listType={experienceType} />
 					</section>

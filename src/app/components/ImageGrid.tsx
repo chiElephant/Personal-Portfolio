@@ -18,8 +18,8 @@ export default function ImageGrid() {
 						className={
 							//  This conditional tilts the 2nd and 5th image counter-clockwise
 							i === 1 || i === 4
-								? 'bg-p dark:bg-pd relative aspect-[5/6] w-44 flex-none -rotate-2 overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl'
-								: 'bg-p dark:bg-pd relative aspect-[5/6] w-44 flex-none rotate-2 overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl'
+								? 'relative aspect-[5/6] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-p1 shadow-md shadow-p10 dark:bg-p9 sm:w-72 sm:rounded-2xl'
+								: 'relative aspect-[5/6] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-p1 shadow-md shadow-p10 dark:bg-p9 sm:w-72 sm:rounded-2xl'
 						}
 					>
 						<Image

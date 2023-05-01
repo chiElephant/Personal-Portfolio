@@ -5,20 +5,29 @@ import ArticlesList from '@/components/ArticlesList'
 import EmailListForm from '@/components/EmailListForm'
 import SocilaLList from '../components/SocialList'
 import HeroImage from '../components/HeroImage'
+import getList from '@/lib/getList'
 
 export const metadata: Metadata = {
 	title: 'Articles',
 }
 
 export default async function Articles(): Promise<JSX.Element> {
+	const articlesList = await getList('articles')
+
 	const content: JSX.Element = (
-		<main className='md:mt-42 mt-36'>
+		<main className='mt-12 md:mt-28'>
 			<Container>
 				<div
 					className='grid grid-cols-1 gap-y-16 lg:grid-cols-2
 				lg:grid-rows-[auto_1fr] lg:gap-y-12'
 				>
-					<HeroImage image={'/blog2.png'} />
+					{/* @ts-expect-error Async Server Component Workaround */}
+					<HeroImage
+						dataType={null}
+						dataId={null}
+						style={`-rotate-3 rounded-2xl drop-shadow-2xl dark:drop-shadow-[0_10px_8px_rgba(0,0,0,1)]`}
+						image={'/blog2.png'}
+					/>
 					<section className='flex items-center lg:row-span-2'>
 						{/* @ts-expect-error Async Server Component Workaround */}
 						<HeadingContainer

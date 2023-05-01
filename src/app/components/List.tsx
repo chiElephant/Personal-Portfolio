@@ -24,7 +24,7 @@ export default async function List({ listType }: Props) {
 	}
 
 	const content = (
-		<div className='rounded-2xl border border-p1 p-4 pt-6 shadow-md dark:border-p7/40 lg:p-6'>
+		<div className='rounded-2xl border border-p1 p-4 pt-6 shadow-md shadow-p3 dark:border-p7/40 dark:shadow-p10 dark:ring-1 dark:ring-p10 lg:p-6'>
 			<h2 className='flex text-sm font-semibold text-p8 dark:text-p1'>
 				{listType === 'professional' ? (
 					<WorkIcon />
@@ -48,7 +48,7 @@ export default async function List({ listType }: Props) {
 				</span>
 			</h2>
 
-			<ol className='space-y-10'>
+			<ol className='mt-12 space-y-10'>
 				{list.map((itemId: string) => (
 					/* @ts-expect-error Async Server Component Workaround */
 					<ListItem
