@@ -1,5 +1,4 @@
 import ArticleItem from '@/components/ArticleItem'
-import Search from './Search'
 import getList from '@/lib/getList'
 
 interface Props {

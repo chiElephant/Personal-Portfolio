@@ -43,7 +43,7 @@ export default async function InformationCard({ dataType, dataId }: Props) {
 					{dataType === 'projects' ? (
 						<div className='mt-4 flex gap-x-2'>
 							<GitHubIcon />
-							<Link href={data.githubLink}>Source Code</Link>
+							<Link href={data.githubLink}>repository</Link>
 						</div>
 					) : (
 						''
