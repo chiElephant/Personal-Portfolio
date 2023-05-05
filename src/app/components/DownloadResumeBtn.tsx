@@ -5,7 +5,7 @@ export default function DownloadResumeBtn() {
 	return (
 		<div className='my-10 flex justify-center'>
 			<Link
-				href='/Anthony_Merino_resume.pdf'
+				href='/Anthony_Merino_Resume.pdf'
 				locale={false}
 				target='_blank'
 				rel='noopener noreferrer'
